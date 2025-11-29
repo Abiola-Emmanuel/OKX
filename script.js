@@ -1,11 +1,17 @@
+const menuOverlay = document.getElementById('menuOverlay');
 
-// Accordion functionality: toggles panels, keeps one open at a time
+function menuOpen() {
+  menuOverlay.classList.add('open')
+}
+function closeMenu() {
+  menuOverlay.classList.remove('open')
+}
+
 document.addEventListener('DOMContentLoaded', function () {
   const items = document.querySelectorAll('.accordion .item');
 
   if (!items.length) return;
 
-  // initialize: ensure content heights reflect any pre-expanded items
   items.forEach(item => {
     const content = item.querySelector('.content-wrap');
     if (item.getAttribute('aria-expanded') === 'true') {
@@ -23,7 +29,6 @@ document.addEventListener('DOMContentLoaded', function () {
     btn.addEventListener('click', () => {
       const isOpen = item.getAttribute('aria-expanded') === 'true';
 
-      // Close all items (single-open behavior)
       items.forEach(i => {
         i.setAttribute('aria-expanded', 'false');
         const b = i.querySelector('.trigger');
@@ -32,7 +37,6 @@ document.addEventListener('DOMContentLoaded', function () {
         if (c) c.style.maxHeight = null;
       });
 
-      // If it was closed, open it
       if (!isOpen) {
         item.setAttribute('aria-expanded', 'true');
         btn.setAttribute('aria-expanded', 'true');
