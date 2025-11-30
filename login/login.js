@@ -53,4 +53,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
   setMode('email');
 
+  function next() {
+    if (input.value.trim() === "") {
+      alert("Please enter your email or phone number.");
+    } else {
+      window.location.href = "/dashboard/dashboard.html";
+    }
+  }
+
+  nextBtn.addEventListener('click', next);
+
 });

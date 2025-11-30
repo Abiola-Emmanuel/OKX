@@ -4,11 +4,105 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sign Up</title>
+  <title>Login</title>
+  <link rel="stylesheet" href="./sign-up.css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
 </head>
 
 <body>
 
+  <div class="menu-overlay" id="menuOverlay">
+    <button onclick="closeMenu()"><i class="fa fa-close"></i></button>
+    <a href="/">HOME</a>
+    <a href="#">COPY TRADE</a>
+    <a href="#">FUTURE TRADE</a>
+  </div>
+
+  <!-- NVIGATION -->
+
+  <nav>
+    <div class="nav-left">
+      <a href=""><img src="/images/logo.png" alt="Logo" width="100px"></a>
+    </div>
+
+    <div style="display: flex; gap: 20px; align-items: center;">
+      <div class="nav-right">
+        <i class="fa fa-search"></i>
+        <a href="/login/login.html">Login</a>
+        <a href="/sign-up/sign-up.html" class="sup">Sign up</a>
+        <i class="fa fa-bell"></i>
+        <i class="fa fa-question-circle-o"></i>
+      </div>
+
+      <button onclick="menuOpen()" class="menu"><i class="fa fa-bars"></i></button>
+    </div>
+  </nav>
+
+  <!-- MAIN LOIN -->
+
+  <div class="sign-up">
+
+    <div class="sign-up-left">
+      <h2>Trade with confidence</h2>
+      <p>We don't lend out customer funds, which is <br> verified through our regularly published Proof of <br> Reserves
+        audits.
+      </p>
+      <img src="/images/sign-up.webp" alt="">
+    </div>
+
+    <div class="sign-up-right">
+
+      <div class="user-inputs">
+
+        <h2>Where do you live?</h2>
+        <p class="response">Your response will be used to set up your account and verify your identity.</p>
+
+        <div class="options">
+          <p class="country">Country/region</p>
+        </div>
+
+        <!-- Add select feauture with different countries as options -->
+        <select>
+          <option value="us">United States</option>
+          <option value="ca">Canada</option>
+          <option value="uk">United Kingdom</option>
+          <option value="au">Australia</option>
+          <option value="in">India</option>
+          <option value="de">Germany</option>
+          <option value="fr">France</option>
+          <option value="it">Italy</option>
+          <option value="es">Spain</option>
+          <option value="nl">Nigeria</option>
+          <option value="be">Belgium</option>
+          <option value="ch">Switzerland</option>
+          <option value="se">Sweden</option>
+          <option value="no">Norway</option>
+          <option value="dk">Denmark</option>
+          <option value="fi">Finland</option>
+          <option value="jp">Japan</option>
+          <option value="kr">South Korea</option>
+          <option value="cn">China</option>
+          <option value="br">Brazil</option>
+          <option value="mx">Mexico</option>
+          <option value="za">South Africa</option>
+          <option value="sg">Singapore</option>
+          <option value="hk">Hong Kong</option>
+          <option value="nz">New Zealand</option>
+          <option value="th">Thailand</option>
+        </select>
+
+        <button class="create" onclick="createAccount()">Create account</button>
+
+        <p class=" h-have">Have an account? <a href="/login/login.html">Log in</a></p>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
 </body>
+<script src="sign-up.js"></script>
 
 </html>
