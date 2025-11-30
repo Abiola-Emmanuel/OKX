@@ -31,7 +31,6 @@ body {
   display: flex;
   opacity: 1;
   pointer-events: auto;
-  /* allow clicks when visible */
 }
 
 .menu-overlay a {
