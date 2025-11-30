@@ -7,6 +7,7 @@
 body {
   background-color: black;
   position: relative;
+  font-family: Inter, sans-serif;
 }
 
 .menu-overlay {
