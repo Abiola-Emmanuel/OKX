@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <link rel="stylesheet" href="./login.css">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+</head>
+
+<body>
+
+  <div class="menu-overlay" id="menuOverlay">
+    <button onclick="closeMenu()"><i class="fa fa-close"></i></button>
+    <a href="#">HOME</a>
+    <a href="#">COPY TRADE</a>
+    <a href="#">FUTURE TRADE</a>
+  </div>
+
+  <!-- NVIGATION -->
+
+  <nav>
+    <div class="nav-left">
+      <a href=""><img src="/images/logo.png" alt="Logo" width="100px"></a>
+    </div>
+
+    <div style="display: flex; gap: 20px; align-items: center;">
+      <div class="nav-right">
+        <i class="fa fa-search"></i>
+        <a href="/login/login.html">Login</a>
+        <a href="/sign-up/sign-up.html" class="sup">Sign up</a>
+        <i class="fa fa-bell"></i>
+        <i class="fa fa-question-circle-o"></i>
+      </div>
+
+      <button onclick="menuOpen()" class="menu"><i class="fa fa-bars"></i></button>
+    </div>
+  </nav>
+
+  <!-- MAIN LOIN -->
+
+  <div class="login">
+
+    <div class="login-left">
+      <h2>Trade with confidence</h2>
+      <p>We don't lend out customer funds, which is <br> verified through our regularly published Proof of <br> Reserves
+        audits.
+      </p>
+      <img src="/images/log-in.webp" alt="">
+    </div>
+
+    <div class="login-right">
+
+      <div class="user-inputs">
+
+        <h2>Log in</h2>
+
+        <div class="options">
+          <button type="button" onclick="phone()" id="phoneOption">Phone</button>
+          <button type="button" onclick="email()" id="emailOption">Email</button>
+        </div>
+
+        <input id="userInput" type="email" placeholder="example@gmail.com" aria-label="Email or phone input">
+        <button class="next" id="nextBtn" disabled>Next</button>
+
+        <p class="d-have">Don't have an account? <a href="/sign-up/sign-up.html">Sign up</a></p>
+
+        <div class="continue">
+          <div class="line"></div>
+          <p> Or continue with </p>
+          <div class="line"></div>
+        </div>
+
+        <div class="other-options">
+          <div class="other-opt">
+            <i class="fa fa-key"></i>
+            <p>Passkey</p>
+          </div>
+          <div class="other-opt">
+            <img src="/images/google.png" alt="">
+            <p>Google</p>
+          </div>
+          <div class="other-opt">
+            <img src="/images/apple.png" alt="">
+            <p>Apple</p>
+          </div>
+          <div class="other-opt">
+            <img src="/images/telegram.png" alt="">
+            <p>Telegram</p>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+
+</body>
+<script src="login.js"></script>
+
+</html>
