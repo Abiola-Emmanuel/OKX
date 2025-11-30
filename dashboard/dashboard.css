@@ -406,6 +406,7 @@ nav i {
   font-weight: 500;
   background-color: transparent;
   cursor: pointer;
+  color: black;
   border-bottom: 2px solid transparent;
 
 }
