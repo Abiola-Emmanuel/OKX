@@ -223,6 +223,228 @@ nav i {
   align-self: flex-start;
 }
 
+.dash-bottom {
+  width: 100%;
+  margin: 30px auto 0px auto;
+  display: flex;
+  gap: 25px;
+}
+
+.dash-left {
+  width: 70%;
+  border-radius: 10px;
+  display: flex;
+  gap: 30px;
+  flex-direction: column;
+}
+
+.dl-top {
+  border: 2px solid rgb(244, 245, 239);
+  height: 276px;
+  border-radius: 10px;
+  background: linear-gradient(to bottom right, rgb(254, 254, 242), white);
+  display: flex;
+  gap: 20px;
+  flex-direction: column;
+  justify-content: center;
+  padding: 20px;
+  position: relative;
+}
+
+.dl-top::before {
+  content: "";
+  position: absolute;
+  bottom: 40px;
+  left: 0;
+  right: 0;
+  width: 100%;
+  border-top: 1px solid rgb(206, 206, 206);
+}
+
+.dl-top h2 {
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 33px;
+}
+
+.dl-top .identity {
+  font-size: 14px;
+  line-height: 16px;
+  color: rgb(61, 61, 61);
+}
+
+.gray2 {
+  font-size: 12px;
+  color: rgb(71, 71, 71);
+}
+
+.smile {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.smile i {
+  font-size: 28px;
+}
+
+.smile a {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  text-decoration: none;
+  color: rgb(80, 181, 90);
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.smile a i {
+  font-size: 16px;
+}
+
+.vyi {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.dl-bottom {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  padding: 20px;
+}
+
+.dl-bottom h2 {
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 33px;
+}
+
+.crypto-table {
+  width: 100%;
+  margin: 20px auto;
+  font-family: Arial, sans-serif;
+}
+
+.table-header,
+.crypto-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid #eee;
+  font-size: 16px;
+}
+
+.col {
+  display: flex;
+  align-items: center;
+}
+
+.name-col {
+  flex: 2;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.price-col,
+.change-col {
+  flex: 1;
+  justify-content: flex-end;
+  display: flex;
+}
+
+.table-header {
+  font-weight: bold;
+  color: #666;
+}
+
+.icon {
+  width: 28px;
+  height: 28px;
+}
+
+.star {
+  color: gold;
+  font-size: 18px;
+}
+
+.price-col {
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.change-col {
+  font-weight: 500;
+  font-size: 14px;
+}
+
+.positive {
+  color: #22c55e;
+}
+
+.negative {
+  color: #ef4444;
+}
+
+.crypto-row:hover {
+  background: #f7f7f7;
+  cursor: pointer;
+}
+
+.trends {
+  display: flex;
+  gap: 25px;
+}
+
+.trends button {
+  border-color: transparent;
+  /* border-bottom: 1px solid black; */
+  font-size: 16px;
+  font-weight: 500;
+  background-color: transparent;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+
+}
+
+
+.trends button.active {
+  border-bottom: 2px solid black;
+  font-weight: bold;
+}
+
+
+.dash-right {
+  width: 30%;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  border: 2px solid rgb(244, 245, 239);
+  padding: 20px;
+  height: 476px;
+}
+
+.dash-right h2 {
+  font-size: 24px;
+  font-weight: 600;
+  height: auto;
+  line-height: 33px;
+}
+
+.ann-row {
+  /* border-top: 1px solid rgb(187, 189, 187); */
+  border-bottom: 1px solid rgb(187, 189, 187);
+  padding: 0px 0px 5px 0px;
+  margin-top: 30px;
+  cursor: pointer;
+}
+
+.ann-row .okx {
+  font-size: 13px;
+}
 
 @media screen and (max-width: 768px) {
   .nav-right i {
@@ -278,6 +500,24 @@ nav i {
   .user-verification a {
     font-weight: 600;
     padding: 2px 10xp;
+  }
+
+  .dash-bottom {
+    flex-direction: column;
+    padding: 50px 0px;
+  }
+
+  .dash-left,
+  .dash-right {
+    width: 100%;
+  }
+
+  .dash-right {
+    height: auto;
+  }
+
+  .trends button {
+    font-size: 13px;
   }
 }
 
