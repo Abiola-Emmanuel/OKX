@@ -129,7 +129,7 @@ nav i {
   height: 100vh;
   margin: 70px auto 0 auto;
   padding: 20px;
-  border: 1px solid red;
+  /* border: 1px solid red; */
 }
 
 .overview {
