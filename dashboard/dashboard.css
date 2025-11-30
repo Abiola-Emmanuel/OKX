@@ -281,12 +281,16 @@ nav i {
   }
 }
 
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 500px) {
   .user-main-left {
-    width: 20%;
+    width: 16%;
   }
 
   .user-main-text {
-    width: 80%;
+    width: 88%;
+  }
+
+  .user-details {
+    gap: 25px;
   }
 }
