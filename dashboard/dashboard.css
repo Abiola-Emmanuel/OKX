@@ -500,9 +500,10 @@ nav i {
   font-size: 13px;
 }
 
-.tv_chart_container {
-  border-radius: 20px;
+.lc_chart {
+  overflow: auto;
 }
+
 
 @media screen and (max-width: 768px) {
   .nav-right i {

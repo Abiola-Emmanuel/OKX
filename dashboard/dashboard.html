@@ -112,6 +112,8 @@
         </div>
 
 
+        <!-- TradingView widget commented out for now (kept here in case you want to re-enable) -->
+        <!--
         <div id="tv_chart_container" style="height:420px; width:100%;"></div>
         <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
         <script type="text/javascript">
@@ -132,214 +134,301 @@
             });
           }
         </script>
+        -->
 
-        <div class="dl-top">
-          <div>
-            <h2>Help us secure your account</h2>
-            <p class="gray2">Verify your identity</p>
-          </div>
+        <!-- <div class="chart-controls" style="margin-top:12px; display:flex; gap:8px;">
+          <button class="tf-btn" data-interval="1m">1m</button>
+          <button class="tf-btn" data-interval="1h">1h</button>
+          <button class="tf-btn" data-interval="1d">1D</button>
+          <button class="tf-btn" data-interval="1w">1W</button> -->
+      </div>
+      <div id="lc_chart" style="height:360px; width:100%; margin-top:8px;"></div>
+      <script
+        src="https://unpkg.com/lightweight-charts@3.8.0/dist/lightweight-charts.standalone.production.js"></script>
+      <script>
+        (function () {
+          const chartEl = document.getElementById('lc_chart');
+          if (!window.LightweightCharts || typeof LightweightCharts.createChart !== 'function') {
+            console.error('LightweightCharts not available or failed to load.');
+            chartEl.innerHTML = '<div style="color:#666;padding:16px;background:#111;border-radius:8px;">Chart library failed to load.</div>';
+            return;
+          }
+          try {
+            const chart = LightweightCharts.createChart(chartEl, {
+              layout: { backgroundColor: '#0b0b0b', textColor: '#d1d1d1' },
+              grid: { vertLines: { color: '#222' }, horzLines: { color: '#222' } },
+              rightPriceScale: { borderColor: '#555' },
+              timeScale: { borderColor: '#555' }
+            });
+            if (typeof chart.addCandlestickSeries !== 'function') {
+              console.error('chart.addCandlestickSeries is not a function — chart API mismatch', chart);
+              chartEl.innerHTML = '<div style="color:#666;padding:16px;background:#111;border-radius:8px;">Chart API not supported in loaded library build.</div>';
+              return;
+            }
+            const candleSeries = chart.addCandlestickSeries();
 
-          <div class="smile">
-            <div class="vyi">
-              <i class="fa fa-smile-o"></i>
-              <div>
-                <p>Verify your identity</p>
-                <p class="gray2">Complete verification for enhanced security</p>
-              </div>
-            </div>
-            <a href="#">Verify now <i class="fa fa-angle-right"></i></a>
-          </div>
+            async function fetchKlines(symbol = 'BTCUSDT', interval = '1d', limit = 500) {
+              try {
+                const url = `https://api.binance.com/api/v3/klines?symbol=${symbol}&interval=${interval}&limit=${limit}`;
+                const res = await fetch(url);
+                if (!res.ok) throw new Error('Klines fetch failed');
+                const data = await res.json();
+                return data.map(k => ({
+                  time: Math.floor(k[0] / 1000),
+                  open: parseFloat(k[1]),
+                  high: parseFloat(k[2]),
+                  low: parseFloat(k[3]),
+                  close: parseFloat(k[4])
+                }));
+              } catch (err) {
+                console.error('Error fetching klines', err);
+                // return small fallback dataset
+                return [
+                  { time: Math.floor(Date.now() / 1000) - 86400 * 4, open: 40000, high: 42000, low: 39000, close: 41000 },
+                  { time: Math.floor(Date.now() / 1000) - 86400 * 3, open: 41000, high: 43000, low: 40500, close: 42000 },
+                  { time: Math.floor(Date.now() / 1000) - 86400 * 2, open: 42000, high: 42500, low: 41500, close: 41800 },
+                  { time: Math.floor(Date.now() / 1000) - 86400 * 1, open: 41800, high: 43500, low: 41700, close: 43200 },
+                  { time: Math.floor(Date.now() / 1000), open: 43200, high: 44000, low: 43000, close: 43800 }
+                ];
+              }
+            }
+
+            async function load(symbol = 'BTCUSDT', interval = '1d') {
+              const mapInterval = interval.toLowerCase();
+              // Binance uses '1w' and '1M' etc. Our buttons use '1w' which is acceptable
+              const klines = await fetchKlines(symbol, mapInterval, 500);
+              candleSeries.setData(klines);
+              chart.timeScale().fitContent();
+            }
+
+            // wire buttons
+            document.querySelectorAll('.tf-btn').forEach(btn => {
+              btn.addEventListener('click', () => {
+                const iv = btn.getAttribute('data-interval');
+                // map display label to Binance interval where necessary
+                const intervalMap = { '1m': '1m', '1h': '1h', '1D': '1d', '1d': '1d', '1w': '1w' };
+                const use = intervalMap[iv] || iv.toLowerCase();
+                load('BTCUSDT', use);
+              });
+            });
+
+            // initial load
+            load('BTCUSDT', '1d');
+          }
+          catch (err) {
+            console.error('Chart initialization error', err);
+            chartEl.innerHTML = '<div style="color:#666;padding:16px;background:#111;border-radius:8px;">Chart initialization error.</div>';
+          }
+        })();
+      </script>
+
+      <div class="dl-top">
+        <div>
+          <h2>Help us secure your account</h2>
+          <p class="gray2">Verify your identity</p>
         </div>
 
-        <div class="dl-bottom">
-          <h2>Today's crypto prices</h2>
-          <div class="trends">
-            <button data-filter="favorites" class="active">Favorites</button>
-            <button data-filter="top">Top</button>
-            <button data-filter="hot">Hot</button>
-            <button data-filter="gainers">Gainers</button>
-            <button data-filter="new">New</button>
+        <div class="smile">
+          <div class="vyi">
+            <i class="fa fa-smile-o"></i>
+            <div>
+              <p>Verify your identity</p>
+              <p class="gray2">Complete verification for enhanced security</p>
+            </div>
           </div>
-
-          <div class="crypto-table">
-
-            <div class="table-header">
-              <div class="col name-col">Name</div>
-              <div class="col price-col">Price</div>
-              <div class="col change-col">Change</div>
-            </div>
-
-            <div class="crypto-row" id="btc-row">
-              <div class="col name-col">
-                <!-- <span class="star"><i class="fa fa-star"></i></span> -->
-                <img src="/images/btc.png" class="icon" />
-                <span class="name">BTC</span>
-              </div>
-              <div class="col price-col">$91,172.30</div>
-              <div class="col change-col positive">+0.37%</div>
-            </div>
-
-            <div class="crypto-row" id="eth-row">
-              <div class="col name-col">
-                <!-- <span class="star"><i class="fa fa-star"></i></span> -->
-                <img src="/images//eth.png" class="icon" />
-                <span class="name">ETH</span>
-              </div>
-              <div class="col price-col">$3,021.03</div>
-              <div class="col change-col positive">+1.04%</div>
-            </div>
-
-            <div class="crypto-row" id="sol-row">
-              <div class="col name-col">
-                <!-- <span class="star"><i class="fa fa-star"></i></span> -->
-                <img src="/images/sol.png" class="icon" />
-                <span class="name">SOL</span>
-              </div>
-              <div class="col price-col">$137.33</div>
-              <div class="col change-col positive">+1.02%</div>
-            </div>
-
-            <div class="crypto-row" id="doge-row">
-              <div class="col name-col">
-                <!-- <span class="star"><i class="fa fa-star"></i></span> -->
-                <img src="/images/doge.png" class="icon" />
-                <span class="name">DOGE</span>
-              </div>
-              <div class="col price-col">$0.14936</div>
-              <div class="col change-col positive">+0.65%</div>
-            </div>
-
-            <div class="crypto-row" id="xrp-row">
-              <div class="col name-col">
-                <!-- <span class="star"><i class="fa fa-star"></i></span> -->
-                <img src="/images/xrp.png" class="icon" />
-                <span class="name">XRP</span>
-              </div>
-              <div class="col price-col">$2.1934</div>
-              <div class="col change-col negative">-0.37%</div>
-            </div>
-
-            <div class="crypto-row" id="usdt-row">
-              <div class="col name-col">
-                <!-- <span class="star"><i class="fa fa-star"></i></span> -->
-                <img src="/images/usdt.png" class="icon" />
-                <span class="name">USDT</span>
-              </div>
-              <div class="col price-col">$1.0000</div>
-              <div class="col change-col positive">-0.02%</div>
-            </div>
-
-            <div class="crypto-row" id="btc-usd-row">
-              <div class="col name-col">
-                <!-- <span class="star"><i class="fa fa-star"></i></span> -->
-                <img src="/images/btc.png" class="icon" />
-                <span class="name">BTC/USD</span>
-              </div>
-              <div class="col price-col">91,293.8</div>
-              <div class="col change-col positive">+0.52%</div>
-            </div>
-
-            <div class="crypto-row" id="eth-usd-row">
-              <div class="col name-col">
-                <!-- <span class="star"><i class="fa fa-star"></i></span> -->
-                <img src="/images/eth.png" class="icon" />
-                <span class="name">ETH/USD</span>
-              </div>
-              <div class="col price-col">$3,030.08</div>
-              <div class="col change-col positive">+1.32%</div>
-            </div>
-
-            <div class="crypto-row" id="xrp-usd-row">
-              <div class="col name-col">
-                <!-- <span class="star"><i class="fa fa-star"></i></span> -->
-                <img src="/images/xrp.png" class="icon" />
-                <span class="name">XRP/USD</span>
-              </div>
-              <div class="col price-col">2.1942</div>
-              <div class="col change-col negative">-0.29</div>
-            </div>
-
-            <div class="crypto-row" id="sol-usd-row">
-              <div class="col name-col">
-                <!-- <span class="star"><i class="fa fa-star"></i></span> -->
-                <img src="/images/sol.png" class="icon" />
-                <span class="name">SOL/USD</span>
-              </div>
-              <div class="col price-col">137.75</div>
-              <div class="col change-col positive">+1.33%</div>
-            </div>
-
-            <div class="crypto-row" id="doge-usd-row">
-              <div class="col name-col">
-                <!-- <span class="star"><i class="fa fa-star"></i></span> -->
-                <img src="/images/doge.png" class="icon" />
-                <span class="name">DOGE/USD</span>
-              </div>
-              <div class="col price-col">$0.14979</div>
-              <div class="col change-col positive">+0.85%</div>
-            </div>
-
-            <div class="crypto-row" id="usdt-usd-row">
-              <div class="col name-col">
-                <!-- <span class="star"><i class="fa fa-star"></i></span> -->
-                <img src="/images/usdt.png" class="icon" />
-                <span class="name">USDT/USD</span>
-              </div>
-              <div class="col price-col">1.0002</div>
-              <div class="col change-col negative">-0.02%</div>
-            </div>
-
-
-          </div>
-
-
-
+          <a href="#">Verify now <i class="fa fa-angle-right"></i></a>
         </div>
-
       </div>
 
-      <div class="dash-right">
-
-        <h2>Announcements</h2>
-
-        <div class="ann-row">
-          <p class="okx">OKX to list Horizen (ZEN) for spot trading</p>
-          <p class="gray">11/17/2025</p>
+      <div class="dl-bottom">
+        <h2>Today's crypto prices</h2>
+        <div class="trends">
+          <button data-filter="favorites" class="active">Favorites</button>
+          <button data-filter="top">Top</button>
+          <button data-filter="hot">Hot</button>
+          <button data-filter="gainers">Gainers</button>
+          <button data-filter="new">New</button>
         </div>
 
-        <div class="ann-row">
-          <p>OKX to list Horizen (ZEN) for spot trading</p>
-          <p class="gray">11/17/2025</p>
+        <div class="crypto-table">
+
+          <div class="table-header">
+            <div class="col name-col">Name</div>
+            <div class="col price-col">Price</div>
+            <div class="col change-col">Change</div>
+          </div>
+
+          <div class="crypto-row" id="btc-row">
+            <div class="col name-col">
+              <!-- <span class="star"><i class="fa fa-star"></i></span> -->
+              <img src="/images/btc.png" class="icon" />
+              <span class="name">BTC</span>
+            </div>
+            <div class="col price-col">$91,172.30</div>
+            <div class="col change-col positive">+0.37%</div>
+          </div>
+
+          <div class="crypto-row" id="eth-row">
+            <div class="col name-col">
+              <!-- <span class="star"><i class="fa fa-star"></i></span> -->
+              <img src="/images//eth.png" class="icon" />
+              <span class="name">ETH</span>
+            </div>
+            <div class="col price-col">$3,021.03</div>
+            <div class="col change-col positive">+1.04%</div>
+          </div>
+
+          <div class="crypto-row" id="sol-row">
+            <div class="col name-col">
+              <!-- <span class="star"><i class="fa fa-star"></i></span> -->
+              <img src="/images/sol.png" class="icon" />
+              <span class="name">SOL</span>
+            </div>
+            <div class="col price-col">$137.33</div>
+            <div class="col change-col positive">+1.02%</div>
+          </div>
+
+          <div class="crypto-row" id="doge-row">
+            <div class="col name-col">
+              <!-- <span class="star"><i class="fa fa-star"></i></span> -->
+              <img src="/images/doge.png" class="icon" />
+              <span class="name">DOGE</span>
+            </div>
+            <div class="col price-col">$0.14936</div>
+            <div class="col change-col positive">+0.65%</div>
+          </div>
+
+          <div class="crypto-row" id="xrp-row">
+            <div class="col name-col">
+              <!-- <span class="star"><i class="fa fa-star"></i></span> -->
+              <img src="/images/xrp.png" class="icon" />
+              <span class="name">XRP</span>
+            </div>
+            <div class="col price-col">$2.1934</div>
+            <div class="col change-col negative">-0.37%</div>
+          </div>
+
+          <div class="crypto-row" id="usdt-row">
+            <div class="col name-col">
+              <!-- <span class="star"><i class="fa fa-star"></i></span> -->
+              <img src="/images/usdt.png" class="icon" />
+              <span class="name">USDT</span>
+            </div>
+            <div class="col price-col">$1.0000</div>
+            <div class="col change-col positive">-0.02%</div>
+          </div>
+
+          <div class="crypto-row" id="btc-usd-row">
+            <div class="col name-col">
+              <!-- <span class="star"><i class="fa fa-star"></i></span> -->
+              <img src="/images/btc.png" class="icon" />
+              <span class="name">BTC/USD</span>
+            </div>
+            <div class="col price-col">91,293.8</div>
+            <div class="col change-col positive">+0.52%</div>
+          </div>
+
+          <div class="crypto-row" id="eth-usd-row">
+            <div class="col name-col">
+              <!-- <span class="star"><i class="fa fa-star"></i></span> -->
+              <img src="/images/eth.png" class="icon" />
+              <span class="name">ETH/USD</span>
+            </div>
+            <div class="col price-col">$3,030.08</div>
+            <div class="col change-col positive">+1.32%</div>
+          </div>
+
+          <div class="crypto-row" id="xrp-usd-row">
+            <div class="col name-col">
+              <!-- <span class="star"><i class="fa fa-star"></i></span> -->
+              <img src="/images/xrp.png" class="icon" />
+              <span class="name">XRP/USD</span>
+            </div>
+            <div class="col price-col">2.1942</div>
+            <div class="col change-col negative">-0.29</div>
+          </div>
+
+          <div class="crypto-row" id="sol-usd-row">
+            <div class="col name-col">
+              <!-- <span class="star"><i class="fa fa-star"></i></span> -->
+              <img src="/images/sol.png" class="icon" />
+              <span class="name">SOL/USD</span>
+            </div>
+            <div class="col price-col">137.75</div>
+            <div class="col change-col positive">+1.33%</div>
+          </div>
+
+          <div class="crypto-row" id="doge-usd-row">
+            <div class="col name-col">
+              <!-- <span class="star"><i class="fa fa-star"></i></span> -->
+              <img src="/images/doge.png" class="icon" />
+              <span class="name">DOGE/USD</span>
+            </div>
+            <div class="col price-col">$0.14979</div>
+            <div class="col change-col positive">+0.85%</div>
+          </div>
+
+          <div class="crypto-row" id="usdt-usd-row">
+            <div class="col name-col">
+              <!-- <span class="star"><i class="fa fa-star"></i></span> -->
+              <img src="/images/usdt.png" class="icon" />
+              <span class="name">USDT/USD</span>
+            </div>
+            <div class="col price-col">1.0002</div>
+            <div class="col change-col negative">-0.02%</div>
+          </div>
+
+
         </div>
 
-        <div class="ann-row">
-          <p>OKX to list Horizen (ZEN) for spot trading</p>
-          <p class="gray">11/17/2025</p>
-        </div>
 
-        <div class="ann-row">
-          <p>OKX to list Horizen (ZEN) for spot trading</p>
-          <p class="gray">11/17/2025</p>
-        </div>
-
-        <div class="ann-row">
-          <p>OKX to list Horizen (ZEN) for spot trading</p>
-          <p class="gray">11/17/2025</p>
-        </div>
-
-        <div class="ann-row">
-          <p>OKX to list Horizen (ZEN) for spot trading</p>
-          <p class="gray">11/17/2025</p>
-        </div>
-
-        <div class="ann-row">
-          <p>OKX to list Horizen (ZEN) for spot trading</p>
-          <p class="gray">11/17/2025</p>
-        </div>
 
       </div>
 
     </div>
+
+    <div class="dash-right">
+
+      <h2>Announcements</h2>
+
+      <div class="ann-row">
+        <p class="okx">OKX to list Horizen (ZEN) for spot trading</p>
+        <p class="gray">11/17/2025</p>
+      </div>
+
+      <div class="ann-row">
+        <p>OKX to list Horizen (ZEN) for spot trading</p>
+        <p class="gray">11/17/2025</p>
+      </div>
+
+      <div class="ann-row">
+        <p>OKX to list Horizen (ZEN) for spot trading</p>
+        <p class="gray">11/17/2025</p>
+      </div>
+
+      <div class="ann-row">
+        <p>OKX to list Horizen (ZEN) for spot trading</p>
+        <p class="gray">11/17/2025</p>
+      </div>
+
+      <div class="ann-row">
+        <p>OKX to list Horizen (ZEN) for spot trading</p>
+        <p class="gray">11/17/2025</p>
+      </div>
+
+      <div class="ann-row">
+        <p>OKX to list Horizen (ZEN) for spot trading</p>
+        <p class="gray">11/17/2025</p>
+      </div>
+
+      <div class="ann-row">
+        <p>OKX to list Horizen (ZEN) for spot trading</p>
+        <p class="gray">11/17/2025</p>
+      </div>
+
+    </div>
+
+  </div>
 
   </div>
 
