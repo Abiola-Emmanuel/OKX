@@ -221,6 +221,10 @@ nav i {
   color: white;
 }
 
+.top-left img {
+  border-radius: 100%;
+}
+
 .charts {
   display: flex;
   justify-content: center;

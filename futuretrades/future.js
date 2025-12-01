@@ -10,7 +10,7 @@ function closeMenu() {
 const data = {
   overview: [
     {
-      img: "/images/btc.png",
+      img: "/images/pf1.jpg",
       name: "Mine13",
       long: "+1.40x",
       pnl: "+95.62%",
@@ -18,7 +18,7 @@ const data = {
       nums: ["96 / 301", "$167,388.82", "46"]
     },
     {
-      img: "/images/eth.png",
+      img: "/images/pf2.jpg",
       name: "AlphaX",
       long: "+2.10x",
       pnl: "+82.10%",
@@ -26,17 +26,17 @@ const data = {
       nums: ["120 / 420", "$210,000.22", "51"]
     },
     {
-      img: "/images/sol.png",
+      img: "/images/pf3.jpg",
       name: "SolKing",
       long: "+1.90x",
-      pnl: "+72.44%",
+      pnl: "-72.44%",
       amount: "+$33,551.18",
       nums: ["88 / 300", "$98,500.12", "39"]
     }
   ],
   pnl_percent: [
     {
-      img: "/images/xrp.png",
+      img: "/images/pf4.jpg",
       name: "XrpMaster",
       long: "+3.10x",
       pnl: "+130.12%",
@@ -44,7 +44,7 @@ const data = {
       nums: ["100 / 350", "$199,100.00", "57"]
     },
     {
-      img: "/images/doge.png",
+      img: "/images/pf5.jpg",
       name: "DogeDude",
       long: "+1.20x",
       pnl: "+55.20%",
@@ -54,7 +54,7 @@ const data = {
   ],
   pnl: [
     {
-      img: "/images/usdt.png",
+      img: "/images/pf6.jpg",
       name: "StablePro",
       long: "+0.10x",
       pnl: "+10.21%",
@@ -107,9 +107,19 @@ function changeImages(filter) {
 
   function applyDataset(key) {
     const dataset = data[key] || data.overview;
+    // if dataset is shorter than the number of rows, fill it using overview so rows don't duplicate the same item
+    const fullDataset = dataset.slice();
+    const fallback = data.overview || [];
+    let fIdx = 0;
+    while (fullDataset.length < rows.length) {
+      if (fallback.length === 0) break;
+      fullDataset.push(fallback[fIdx % fallback.length]);
+      fIdx++;
+    }
+
     // for each ch-row, update image, name, long, pnl, amount and nums
     rows.forEach((rowEl, idx) => {
-      const item = dataset[idx % dataset.length];
+      const item = fullDataset[idx % fullDataset.length];
       if (!item) return;
 
       const img = rowEl.querySelector('.top-left img');
