@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>FUTURE TRADES</title>
+  <link rel="stylesheet" href="future.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Belanosima:wght@400;600;700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+    rel="stylesheet">
+  <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
+</head>
+
+<body>
+
+  <div class="menu-overlay" id="menuOverlay">
+    <button onclick="closeMenu()"><i class="fa fa-close"></i></button>
+    <a href="#">HOME</a>
+    <a href="#">SPOT TRADE</a>
+    <a href="/futuretrades/future.html">FUTURE TRADE</a>
+    <a href="#">HISTORY</a>
+  </div>
+
+  <!-- NVIGATION -->
+
+  <!-- NAVIGATION -->
+
+  <nav>
+    <div class="nav-left">
+      <a href=""><img src="/images/logo.png" alt="Logo" width="100px"></a>
+      <a class="abt" href="/futuretrades/future.html">Future Trades <i class="fa fa-angle-down"></i></a>
+      <a class="copy" href="#">Spot Trades <i class="fa fa-angle-down"></i></a>
+      <a class="history" href="#"> History<i class="fa fa-angle-down"></i></a>
+    </div>
+
+    <div style="display: flex; gap: 20px; align-items: center;">
+      <div class="nav-right">
+        <a href="#" class="deposit">Deposit</a>
+        <i class="fa fa-search"></i>
+        <i class="fa fa-user"></i>
+        <i class="fa fa-bell"></i>
+        <i class="fa fa-question-circle-o"></i>
+      </div>
+
+      <button onclick="menuOpen()" class="menu"><i class="fa fa-bars"></i></button>
+    </div>
+  </nav>
+
+</body>
+<script src="future.js"></script>
+
+</html>

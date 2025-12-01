@@ -5,6 +5,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Dashboard</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link
     href="https://fonts.googleapis.com/css2?family=Belanosima:wght@400;600;700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
     rel="stylesheet">
@@ -18,7 +20,7 @@
     <button onclick="closeMenu()"><i class="fa fa-close"></i></button>
     <a href="/">HOME</a>
     <a href="#">SPOT TRADE</a>
-    <a href="#">FUTURE TRADE</a>
+    <a href="/futuretrades/future.html">FUTURE TRADE</a>
     <a href="#">HISTORY</a>
   </div>
 
@@ -27,7 +29,7 @@
   <nav>
     <div class="nav-left">
       <a href=""><img src="/images/logo.png" alt="Logo" width="100px"></a>
-      <a class="abt" href="#">Future Trades <i class="fa fa-angle-down"></i></a>
+      <a class="abt" href="/futuretrades/future.html">Future Trades <i class="fa fa-angle-down"></i></a>
       <a class="copy" href="#">Spot Trades <i class="fa fa-angle-down"></i></a>
       <a class="history" href="#"> History<i class="fa fa-angle-down"></i></a>
     </div>
@@ -50,6 +52,8 @@
   <div class="dash-main">
 
     <p class="overview">Overview</p>
+
+
 
     <div class="user-details">
 
@@ -92,6 +96,42 @@
 
 
       <div class="dash-left">
+
+        <div class="balance">
+
+          <p class="estimated">Estimated total value <i class="fa fa-eye"></i></p>
+
+          <h2 class="money">50,000 <span class="currency">USD</span></h2>
+
+          <p class="today"><span>Today's PnL </span> $10.00(3.22%)</p>
+        </div>
+
+        <div class="balance-options">
+          <button>Deposit</button>
+          <button>Withdraw</button>
+        </div>
+
+
+        <div id="tv_chart_container" style="height:420px; width:100%;"></div>
+        <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
+        <script type="text/javascript">
+          if (typeof TradingView !== 'undefined') {
+            new TradingView.widget({
+              autosize: true,
+              symbol: "BINANCE:BTCUSDT",
+              interval: "60",
+              container_id: "tv_chart_container",
+              timezone: "Etc/UTC",
+              theme: "dark",
+              style: "1",
+              locale: "en",
+              toolbar_bg: "#222",
+              enable_publishing: false,
+              allow_symbol_change: true,
+              hide_side_toolbar: false
+            });
+          }
+        </script>
 
         <div class="dl-top">
           <div>
@@ -264,6 +304,21 @@
 
         <div class="ann-row">
           <p class="okx">OKX to list Horizen (ZEN) for spot trading</p>
+          <p class="gray">11/17/2025</p>
+        </div>
+
+        <div class="ann-row">
+          <p>OKX to list Horizen (ZEN) for spot trading</p>
+          <p class="gray">11/17/2025</p>
+        </div>
+
+        <div class="ann-row">
+          <p>OKX to list Horizen (ZEN) for spot trading</p>
+          <p class="gray">11/17/2025</p>
+        </div>
+
+        <div class="ann-row">
+          <p>OKX to list Horizen (ZEN) for spot trading</p>
           <p class="gray">11/17/2025</p>
         </div>
 

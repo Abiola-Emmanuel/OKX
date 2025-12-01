@@ -43,7 +43,7 @@ const iconMap = {
     SOL: "/images/sol.png",
     DOGE: "/images/doge.png",
     XRP: "/images/xrp.png",
-    USDT: "/images/usdt.png"
+    USDT: "/images/usdt.png",
   },
 
   hot: {
