@@ -137,6 +137,9 @@ nav i {
 }
 
 .balance {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
   width: 100%;
   margin: auto;
   padding: 20px;
