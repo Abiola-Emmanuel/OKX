@@ -195,5 +195,9 @@ function createSparkline(id, data, color) {
 }
 
 createSparkline("chart-btc", [2, 4, 3, 5, 4, 6], "#22c55e");
+createSparkline("chart-btc2", [2, 4, 3, 5, 4, 6], "#22c55e");
+createSparkline("chart-btc3", [2, 4, 3, 5, 4, 6], "#22c55e");
 createSparkline("chart-eth", [5, 4, 4, 3, 3, 2], "#ef4444");
+createSparkline("chart-eth2", [5, 4, 4, 3, 3, 2], "#ef4444");
+createSparkline("chart-eth3", [5, 4, 4, 3, 3, 2], "#ef4444");
 createSparkline("chart-xrp", [1, 2, 5, 2, 6, 5], "#22c55e");
