@@ -104,3 +104,20 @@ function resetImages() {
     }
   });
 }
+
+if (typeof TradingView !== 'undefined') {
+  new TradingView.widget({
+    autosize: true,
+    symbol: "BINANCE:BTCUSDT",
+    interval: "60",
+    container_id: "tv_chart_container",
+    timezone: "Etc/UTC",
+    theme: "dark",
+    style: "1",
+    locale: "en",
+    toolbar_bg: "#222",
+    enable_publishing: false,
+    allow_symbol_change: true,
+    hide_side_toolbar: false
+  });
+}

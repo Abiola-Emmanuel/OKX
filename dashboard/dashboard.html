@@ -115,24 +115,7 @@
         <!-- TradingView widget commented out for now (kept here in case you want to re-enable) -->
 
         <div id="tv_chart_container" style="height:420px; width:100%;"></div>
-        <script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
-        <script type="text/javascript">
-          if (typeof TradingView !== 'undefined') {
-            new TradingView.widget({
-              autosize: true,
-              symbol: "BINANCE:BTCUSDT",
-              interval: "60",
-              container_id: "tv_chart_container",
-              timezone: "Etc/UTC",
-              theme: "dark",
-              style: "1",
-              locale: "en",
-              toolbar_bg: "#222",
-              enable_publishing: false,
-              allow_symbol_change: true,
-              hide_side_toolbar: false
-            });
-          }
+
         </script>
 
 
@@ -434,6 +417,8 @@
   </div>
 
 </body>
+<script type="text/javascript" src="https://s3.tradingview.com/tv.js"></script>
 <script src="dashboard.js"></script>
+
 
 </html>
