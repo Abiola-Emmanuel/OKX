@@ -314,6 +314,7 @@ nav i {
   width: 50%;
   /* border: 1px solid teal; */
   display: flex;
+  gap: 10px;
   flex-direction: column;
   align-items: flex-end;
   justify-content: space-between;
@@ -336,6 +337,13 @@ nav i {
 .copy-btn:active {
   transform: translateY(4px);
 }
+
+
+.sparkline {
+  width: 90%;
+  height: 100%;
+}
+
 
 .nums {
   text-align: right;

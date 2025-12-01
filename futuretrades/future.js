@@ -164,3 +164,36 @@ function changeImages(filter) {
   }
 
 })();
+
+function createSparkline(id, data, color) {
+  new Chart(document.getElementById(id), {
+    type: "line",
+    data: {
+      labels: data.map(() => ""), // no labels shown
+      datasets: [{
+        data: data,
+        borderColor: color,
+        borderWidth: 2,
+        tension: 0.4,
+        pointRadius: 0,
+        fill: false,
+      }]
+    },
+    options: {
+      plugins: {
+        legend: { display: false },
+        tooltip: { enabled: false }
+      },
+      scales: {
+        x: { display: false },
+        y: { display: false }
+      },
+      responsive: false,
+      maintainAspectRatio: false,
+    }
+  });
+}
+
+createSparkline("chart-btc", [2, 4, 3, 5, 4, 6], "#22c55e");
+createSparkline("chart-eth", [5, 4, 4, 3, 3, 2], "#ef4444");
+createSparkline("chart-xrp", [1, 2, 5, 2, 6, 5], "#22c55e");
