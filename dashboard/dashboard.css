@@ -502,6 +502,7 @@ nav i {
 
 .lc_chart {
   overflow: auto;
+  border-radius: 10px;
 }
 
 
@@ -591,5 +592,9 @@ nav i {
 
   .user-details {
     gap: 25px;
+  }
+
+  .dash-main {
+    padding: 5px;
   }
 }
