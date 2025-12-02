@@ -240,6 +240,30 @@ nav i {
   display: flex;
   justify-content: space-between;
   background-color: rgb(17, 17, 17);
+  position: relative;
+}
+
+
+.ch-row::before {
+  position: absolute;
+  content: "";
+  bottom: 15px;
+  height: 2px;
+  border-radius: 50px;
+  background-color: rgb(185, 252, 53);
+  left: 30px;
+  right: 30px;
+}
+
+.half::before {
+  position: absolute;
+  content: "";
+  bottom: 15px;
+  height: 2px;
+  border-radius: 50px;
+  background-color: rgb(185, 252, 53);
+  left: 30px;
+  right: 100px;
 }
 
 .top-left {
@@ -351,10 +375,8 @@ nav i {
 
 
 .sparkline {
-  width: 100%;
-  height: 70px;
-  /* fixed visual height for sparklines; Chart.js will fit this when responsive */
-  display: block;
+  width: 90%;
+  height: 100%;
 }
 
 
