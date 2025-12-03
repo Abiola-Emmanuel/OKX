@@ -412,6 +412,7 @@ nav i {
   background-color: rgb(242, 242, 242);
   border: none;
   outline: none;
+  color: black;
 }
 
 .p-right-pr5 option {
@@ -624,6 +625,11 @@ nav i {
   .main-left,
   .performance-right {
     width: 100%;
+  }
+
+  .pr4-main {
+    flex-direction: column;
+    gap: 10px;
   }
 
 }
