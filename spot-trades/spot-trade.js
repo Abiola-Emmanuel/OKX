@@ -9,9 +9,12 @@ function closeMenu() {
 
 const data = {
   overview: [
-    { img: "/images/pf1.jpg", name: "Mine13", long: "+1.40x", pnl: "+10.17%", amount: "+$96,721.15", nums: ["96 / 301", "$167,388.82", "46"] },
-    { img: "/images/pf2.jpg", name: "AlphaX", long: "+2.10x", pnl: "+11.21%", amount: "+$45,882.11", nums: ["120 / 420", "$210,000.22", "51"] },
-    { img: "/images/pf3.jpg", name: "SolKing", long: "+1.90x", pnl: "+38.82%", amount: "+$33,551.18", nums: ["88 / 300", "$98,500.12", "39"] }
+    { img: "/images/pf1.jpg", name: "Mine13", long: "+1.40x", pnl: "+95.62%", amount: "+$96,721.15", nums: ["96 / 301", "$167,388.82", "46"] },
+    { img: "/images/pf2.jpg", name: "AlphaX", long: "+2.10x", pnl: "+82.10%", amount: "+$45,882.11", nums: ["120 / 420", "$210,000.22", "51"] },
+    { img: "/images/pf3.jpg", name: "SolKing", long: "+1.90x", pnl: "-72.44%", amount: "+$33,551.18", nums: ["88 / 300", "$98,500.12", "39"] },
+    { img: "/images/pf4.jpg", name: "XrpMaster", long: "+3.10x", pnl: "+130.12%", amount: "+$120,882.55", nums: ["100 / 350", "$199,100.00", "57"] },
+    { img: "/images/pf5.jpg", name: "DogeDude", long: "+1.20x", pnl: "+55.20%", amount: "+$22,221.12", nums: ["68 / 265", "$66,720.00", "30"] },
+    { img: "/images/pf6.jpg", name: "XrpMaster", long: "+3.10x", pnl: "+130.12%", amount: "+$120,882.55", nums: ["100 / 350", "$199,100.00", "57"] },
   ],
   pnl_percent: [
     { img: "/images/pf4.jpg", name: "XrpMaster", long: "+3.10x", pnl: "+130.12%", amount: "+$120,882.55", nums: ["100 / 350", "$199,100.00", "57"] },
@@ -112,3 +115,5 @@ initializeFilters();
 [["chart-btc", "#22c55e"], ["chart-eth2", "#22c55e"], ["chart-eth3", "#22c55e"], ["chart-eth", "#ef4444"], ["chart-btc3", "#22c55e"], ["chart-xrp", "#22c55e"]].forEach(([id, color]) => {
   createSparkline(id, [2, 4, 3, 5, 4, 6], color);
 });
+
+

@@ -1,3 +1,5 @@
+AOS.init();
+
 const menuOverlay = document.getElementById('menuOverlay');
 
 function menuOpen() {
