@@ -216,6 +216,7 @@ nav i {
   border-radius: 50px;
   padding: 10px 20px;
   font-size: 13px;
+  color: black;
 }
 
 .top-right .copy-now {
@@ -225,6 +226,7 @@ nav i {
   padding: 10px 15px;
   font-size: 13px;
   font-weight: 500;
+  color: black;
 }
 
 .main {
