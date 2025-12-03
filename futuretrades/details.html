@@ -6,6 +6,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>User Details</title>
   <link rel="stylesheet" href="details.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Belanosima:wght@400;600;700&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap"
+    rel="stylesheet">
   <link rel="stylesheet" href="/font-awesome/css/font-awesome.min.css">
 </head>
 
@@ -93,13 +98,147 @@
 
     <div class="performance">
 
-      <div class="performance-left">
+      <div class="main-left">
+        <div class="performance-left">
+          <div class="tp">
+            <h3>Trading performance</h3>
+            <div class="progress">
+              <div class="bar">
+                <div class="green"></div>
+              </div>
+              <div class="days">
+                <p>Days w/ profit <span style="color: #3bb564;">4</span></p>
+                <p>Days w/ loss <span>1</span></p>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="p2">
+            <div class="col">
+              <div class="row">
+                <p class="win">Win rate</p>
+                <p class="percent">80.00%</p>
+              </div>
+
+              <div class="row">
+                <p class="win">Profit/Loss ratio</p>
+                <p class="percent">29.95:1</p>
+              </div>
+
+              <div class="row">
+                <p class="win">Average order value</p>
+                <p class="percent">15,150.38</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="performance-left2">
+          <div class="tp">
+            <h3>Lead trader overview</h3>
+          </div>
+
+          <div class="p2">
+
+
+            <div class="col">
+              <div class="row">
+                <p class="win">Days leading trades</p>
+                <p class="percent">90%</p>
+              </div>
+
+              <div class="row">
+                <p class="win">Lead trade assets(USDT)</p>
+                <p class="percent">136,608.46</p>
+              </div>
+
+              <div class="row">
+                <p class="win">AUM</p>
+                <p class="percent">90,118.67</p>
+              </div>
+
+              <div class="row">
+                <p class="win">Current copy trader PnL (USDT)</p>
+                <p class="percent">4.27</p>
+              </div>
+
+              <div class="row">
+                <p class="win">Copy traders</p>
+                <p class="percent">15/300</p>
+              </div>
+
+              <div class="row">
+                <p class="win">Profit-sharing ratio</p>
+                <p class="percent">10%</p>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+        <div class="performance-left3">
+          <div class="tp">
+            <h3>Copy traders</h3>
+
+          </div>
+
+          <div class="p2">
+            <div class="col">
+              <div class="row">
+                <p class="win">Cumulative total</p>
+                <p class="percent">81</p>
+              </div>
+
+              <div class="row">
+                <p class="win">Change in last 7 days</p>
+                <p class="percent"><i class="fa fa-arrow-up" style="color: green"></i>4k+145.45%</p>
+              </div>
+
+              <div class="ranks">
+
+                
+
+              </div>
+
+
+            </div>
+          </div>
+        </div>
 
       </div>
 
       <div class="performance-right">
-        
+
+        <div class="pr2">
+          <div class="p-right">
+            <p class="weekly">Weekly PnL</p>
+
+            <div class="pnL">
+              <button>PnL%</button>
+              <button>PnL</button>
+            </div>
+          </div>
+
+          <canvas id="weeklyPnL"></canvas>
+        </div>
+
+        <div class="pr3">
+          <div class="p-right">
+            <p class="weekly">Weekly PnL</p>
+
+            <div class="pnL">
+              <button>PnL%</button>
+              <button>PnL</button>
+            </div>
+          </div>
+
+          <canvas id="weeklyPnL2"></canvas>
+        </div>
+
+
       </div>
+
 
     </div>
 
@@ -108,6 +247,8 @@
 
 
 </body>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
 <script src="details.js"></script>
 
 </html>

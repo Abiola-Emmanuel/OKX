@@ -59,10 +59,79 @@ const bioEl = document.getElementById('bio');
 if (bioEl) bioEl.textContent = Ubio;
 
 
+const ctx = document.getElementById('weeklyPnL');
+const ctx2 = document.getElementById("weeklyPnL2").getContext("2d");
+
+new Chart(ctx, {
+  type: 'bar',
+  data: {
+    labels: ['12W', '10W', '8W', '6W', '4W', '2W'],
+    datasets: [{
+      label: 'Weekly PnL',
+      data: [2000, 0, 3000, 25000, 12000, 15000],
+      backgroundColor: function (context) {
+        const value = context.raw;
+        return value < 0 ? '#e74c3c' : '#2ecc71';
+      },
+      borderRadius: 4,
+      borderSkipped: false,
+      barThickness: 28
+    }]
+  },
+
+  options: {
+    responsive: true,
+    plugins: {
+      legend: { display: false }
+    },
+
+    scales: {
+      x: {
+        grid: { display: false },
+        ticks: {
+          color: '#666',
+          font: { size: 12 }
+        }
+      },
+
+      y: {
+        grid: { color: '#eee' },
+        ticks: {
+          color: '#aaa',
+          callback: function (value) {
+            return value.toLocaleString();
+          }
+        }
+      }
+    }
+  }
+});
 
 
-console.log(Uname);
-// console.log(Ufollowing);
-// console.log(Ufollowers);
-// console.log(Ubio);
+const gradient = ctx2.createLinearGradient(0, 0, 0, 400);
+gradient.addColorStop(0, "rgba(34,197,94,0.35)");
+gradient.addColorStop(1, "rgba(34,197,94,0)");
 
+// Build chart
+new Chart(ctx2, {
+  type: "line",
+  data: {
+    labels: ["Mon", "Tue", "Wed", "Thu", "Fri"],
+    datasets: [{
+      data: [0, 1, 1, 6, 6],
+      borderColor: "rgb(34,197,94)",
+      borderWidth: 3,
+      backgroundColor: gradient,
+      stepped: true,
+      pointRadius: 0,
+      fill: true
+    }]
+  },
+  options: {
+    plugins: { legend: { display: false } },
+    scales: {
+      x: { grid: { display: false } },
+      y: { grid: { color: "rgba(0,0,0,0.05)" } }
+    }
+  }
+});
