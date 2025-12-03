@@ -372,13 +372,22 @@ nav i {
 
 .performance-right {
   width: 60%;
-  height: 300px;
+  /* height: 330px; */
   padding: 10px;
   border-radius: 10px;
-  border: 2px solid rgb(242, 242, 242);
+  /* border: 2px solid rgb(242, 242, 242); */
   display: flex;
   flex-direction: column;
   gap: 20px;
+}
+
+.pr2,
+.pr3,
+.pr4,
+.pr5 {
+  border: 2px solid rgb(242, 242, 242);
+  padding: 10px;
+  border-radius: 10px;
 }
 
 .weekly {
@@ -389,6 +398,24 @@ nav i {
 .p-right {
   display: flex;
   justify-content: space-between;
+}
+
+.p-right-pr5 {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+}
+
+.p-right-pr5 select {
+  padding: 5px 10px;
+  border-radius: 5px;
+  background-color: rgb(242, 242, 242);
+  border: none;
+  outline: none;
+}
+
+.p-right-pr5 option {
+  color: black;
 }
 
 .pnL {
@@ -413,8 +440,140 @@ nav i {
 }
 
 .ranks {
-  border: 1px solid red;
+  display: flex;
+  gap: 50px;
+  flex-direction: column;
+  gap: 15px;
 }
+
+.rank-row {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 2px solid rgb(242, 242, 242);
+  padding-bottom: 10px;
+}
+
+.rank-row img {
+  width: 30px;
+  height: 30px;
+  object-fit: cover;
+  border-radius: 100%;
+}
+
+.rank-left {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.rank-left p {
+  font-size: 13px;
+  font-weight: 500;
+}
+
+.dot {
+  width: 30px;
+  height: 30px;
+  background-color: rgb(223, 223, 223);
+  border-radius: 100%;
+}
+
+.green-text {
+  color: rgb(35, 248, 35);
+  font-weight: 500;
+}
+
+.gray-text {
+  color: gray;
+  font-weight: 500;
+}
+
+.pr4 {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.pr4 {
+  margin-top: 50px;
+}
+
+.pr4-main {
+  display: flex;
+  margin-top: 20px;
+  align-items: center;
+  justify-content: center;
+  gap: 100px;
+}
+
+.chart-wrapper {
+  width: 190px;
+  height: 190px;
+  position: relative;
+}
+
+.wifi,
+.bnb {
+  display: flex;
+  gap: 50px;
+  text-align: left;
+}
+
+.wifi p,
+.bnb p {
+  font-weight: 500;
+}
+
+.bb,
+.gg {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}
+
+.blue-b {
+  width: 5px;
+  height: 5px;
+  background-color: dodgerblue;
+}
+
+.green-b {
+  width: 5px;
+  height: 5px;
+  background-color: rgb(22, 189, 214);
+}
+
+.p-l {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 30px;
+  gap: 30px;
+  font-size: 13px;
+}
+
+.green-ball,
+.red-ball {
+  width: 8px;
+  height: 8px;
+  border-radius: 100%;
+}
+
+.profit,
+.loss {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.green-ball {
+  background-color: #22c55e;
+}
+
+.red-ball {
+  background-color: red;
+}
+
 
 @media screen and (max-width: 768px) {
   .nav-right i {

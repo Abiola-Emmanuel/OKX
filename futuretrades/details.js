@@ -61,6 +61,9 @@ if (bioEl) bioEl.textContent = Ubio;
 
 const ctx = document.getElementById('weeklyPnL');
 const ctx2 = document.getElementById("weeklyPnL2").getContext("2d");
+const ctx3 = document.getElementById("portfolioChart").getContext("2d");
+const ctx4 = document.getElementById("profitLossChart").getContext("2d");
+
 
 new Chart(ctx, {
   type: 'bar',
@@ -90,7 +93,7 @@ new Chart(ctx, {
         grid: { display: false },
         ticks: {
           color: '#666',
-          font: { size: 12 }
+          font: { size: 10 }
         }
       },
 
@@ -132,6 +135,102 @@ new Chart(ctx2, {
     scales: {
       x: { grid: { display: false } },
       y: { grid: { color: "rgba(0,0,0,0.05)" } }
+    }
+  }
+});
+
+
+const centerTextPlugin = {
+  id: "centerText",
+  beforeDraw(chart) {
+    const { ctx, width, height } = chart;
+
+    ctx.save();
+    ctx.font = "bold 22px Arial";
+    ctx.fillStyle = "#111";
+    ctx.textAlign = "center";
+    ctx.textBaseline = "middle";
+    ctx.fillText("80.00%", width / 2, height / 2 + 10);
+
+    ctx.font = "12px Arial";
+    ctx.fillStyle = "#888";
+    ctx.fillText("WLFI", width / 2, height / 2 - 15);
+    ctx.restore();
+  }
+};
+
+new Chart(ctx3, {
+  type: "doughnut",
+  data: {
+    labels: ["WLFI", "BNB"],
+    datasets: [
+      {
+        data: [80, 20],
+        backgroundColor: ["#3b6ef5", "#2bb3c0"],
+        borderWidth: 0
+      }
+    ]
+  },
+  options: {
+    cutout: "72%",
+    plugins: {
+      legend: { display: false },
+      tooltip: { enabled: false }
+    }
+  },
+  plugins: [centerTextPlugin]
+});
+
+
+
+const profitData = [{
+  x: "1m",
+  y: 3450.98
+}];
+
+const lossData = [];
+
+new Chart(ctx4, {
+  type: "scatter",
+  data: {
+    datasets: [
+      {
+        label: "Profit",
+        data: profitData,
+        backgroundColor: "#22c55e",
+        pointRadius: 6
+      },
+      {
+        label: "Loss",
+        data: lossData,
+        backgroundColor: "#f43f5e",
+        pointRadius: 6
+      }
+    ]
+  },
+  options: {
+    plugins: {
+      legend: { display: false }, // we use custom legend
+      tooltip: { enabled: false }
+    },
+    scales: {
+      x: {
+        type: "category",
+        labels: ["1m", "24h", "5D", "15D"],
+        grid: { display: false },
+        ticks: { color: "#999" }
+      },
+      y: {
+        min: 3450.92,
+        max: 3451.02,
+        grid: {
+          color: "rgba(0,0,0,0.05)",
+          borderDash: [4, 4]
+        },
+        ticks: {
+          color: "#999"
+        }
+      }
     }
   }
 });
