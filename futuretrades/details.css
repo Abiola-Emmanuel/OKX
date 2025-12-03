@@ -309,7 +309,7 @@ nav i {
 
 }
 
-@media screen and (max-width: 400px) {
+@media screen and (max-width: 500px) {
   .top-right .copy-now {
     display: none;
   }
