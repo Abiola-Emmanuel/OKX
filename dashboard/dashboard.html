@@ -59,7 +59,7 @@
 
       <div class="user-main user">
         <div class="user-main-left">
-          <img src="/images/dash-user.png" alt="User image">
+          <img src="/images/dash-user.png" alt="User image" data-aos="zoom-out">
         </div>
         <div class="user-main-text">
           <p class="text-mail">shi***@gmail.com</p>
@@ -99,9 +99,9 @@
 
         <div class="balance">
 
-          <p class="estimated">Estimated total value <i class="fa fa-eye"></i></p>
+          <p class="estimated">Estimated total value <i id="toggleEye" class="fa fa-eye"></i></p>
 
-          <h2 class="money">50,000 <span class="currency">USD</span></h2>
+          <h2 class="money" id="money">50,000 <span class="currency">USD</span></h2>
 
           <p class="today"><span>Today's PnL </span> $10.00(3.22%)</p>
         </div>
@@ -112,99 +112,11 @@
         </div>
 
 
-        <!-- TradingView widget commented out for now (kept here in case you want to re-enable) -->
 
         <div id="tv_chart_container" style="height:420px; width:100%;"></div>
 
         </script>
 
-
-        <!-- Minimal candlestick chart using Lightweight-Charts + Binance public klines -->
-        <!-- <div class="chart-controls" style="margin-top:12px; display:flex; gap:8px;">
-          <button class="tf-btn" data-interval="1m">1m</button>
-          <button class="tf-btn" data-interval="1h">1h</button>
-          <button class="tf-btn" data-interval="1d">1D</button>
-          <button class="tf-btn" data-interval="1w">1W</button> -->
-        <!-- </div>
-      <div id="lc_chart" style="height:360px; width:100%; margin-top:8px;"></div>
-      <script
-        src="https://unpkg.com/lightweight-charts@3.8.0/dist/lightweight-charts.standalone.production.js"></script>
-      <script>
-        (function () {
-          const chartEl = document.getElementById('lc_chart');
-          if (!window.LightweightCharts || typeof LightweightCharts.createChart !== 'function') {
-            console.error('LightweightCharts not available or failed to load.');
-            chartEl.innerHTML = '<div style="color:#666;padding:16px;background:#111;border-radius:8px;">Chart library failed to load.</div>';
-            return;
-          }
-          try {
-            const chart = LightweightCharts.createChart(chartEl, {
-              layout: { backgroundColor: '#0b0b0b', textColor: '#d1d1d1' },
-              grid: { vertLines: { color: '#222' }, horzLines: { color: '#222' } },
-              rightPriceScale: { borderColor: '#555' },
-              timeScale: { borderColor: '#555' }
-            });
-            if (typeof chart.addCandlestickSeries !== 'function') {
-              console.error('chart.addCandlestickSeries is not a function — chart API mismatch', chart);
-              chartEl.innerHTML = '<div style="color:#666;padding:16px;background:#111;border-radius:8px;">Chart API not supported in loaded library build.</div>';
-              return;
-            }
-            const candleSeries = chart.addCandlestickSeries();
-
-            async function fetchKlines(symbol = 'BTCUSDT', interval = '1d', limit = 500) {
-              try {
-                const url = `https://api.binance.com/api/v3/klines?symbol=${symbol}&interval=${interval}&limit=${limit}`;
-                const res = await fetch(url);
-                if (!res.ok) throw new Error('Klines fetch failed');
-                const data = await res.json();
-                return data.map(k => ({
-                  time: Math.floor(k[0] / 1000),
-                  open: parseFloat(k[1]),
-                  high: parseFloat(k[2]),
-                  low: parseFloat(k[3]),
-                  close: parseFloat(k[4])
-                }));
-              } catch (err) {
-                console.error('Error fetching klines', err);
-                // return small fallback dataset
-                return [
-                  { time: Math.floor(Date.now() / 1000) - 86400 * 4, open: 40000, high: 42000, low: 39000, close: 41000 },
-                  { time: Math.floor(Date.now() / 1000) - 86400 * 3, open: 41000, high: 43000, low: 40500, close: 42000 },
-                  { time: Math.floor(Date.now() / 1000) - 86400 * 2, open: 42000, high: 42500, low: 41500, close: 41800 },
-                  { time: Math.floor(Date.now() / 1000) - 86400 * 1, open: 41800, high: 43500, low: 41700, close: 43200 },
-                  { time: Math.floor(Date.now() / 1000), open: 43200, high: 44000, low: 43000, close: 43800 }
-                ];
-              }
-            }
-
-            async function load(symbol = 'BTCUSDT', interval = '1d') {
-              const mapInterval = interval.toLowerCase();
-              // Binance uses '1w' and '1M' etc. Our buttons use '1w' which is acceptable
-              const klines = await fetchKlines(symbol, mapInterval, 500);
-              candleSeries.setData(klines);
-              chart.timeScale().fitContent();
-            }
-
-            // wire buttons
-            document.querySelectorAll('.tf-btn').forEach(btn => {
-              btn.addEventListener('click', () => {
-                const iv = btn.getAttribute('data-interval');
-                // map display label to Binance interval where necessary
-                const intervalMap = { '1m': '1m', '1h': '1h', '1D': '1d', '1d': '1d', '1w': '1w' };
-                const use = intervalMap[iv] || iv.toLowerCase();
-                load('BTCUSDT', use);
-              });
-            });
-
-            // initial load
-            load('BTCUSDT', '1d');
-          }
-          catch (err) {
-            console.error('Chart initialization error', err);
-            chartEl.innerHTML = '<div style="color:#666;padding:16px;background:#111;border-radius:8px;">Chart initialization error.</div>';
-          }
-        })();
-      </script> -->
 
         <div class="dl-top">
           <div>

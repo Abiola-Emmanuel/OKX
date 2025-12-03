@@ -7,6 +7,22 @@ function closeMenu() {
   menuOverlay.classList.remove('open')
 }
 
+let isHidden = false;
+let money = document.getElementById("money");
+let toggleBtn = document.getElementById("toggleEye");
+
+let originalAmount = money.textContent;
+
+toggleBtn.addEventListener("click", function () {
+  if (isHidden === false) {
+    money.textContent = "*****";
+    isHidden = true;
+  } else {
+    money.textContent = originalAmount;
+    isHidden = false;
+  }
+});
+
 const buttons = document.querySelectorAll(".trends button");
 const rows = document.querySelectorAll(".crypto-row");
 
