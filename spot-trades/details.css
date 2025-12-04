@@ -635,7 +635,33 @@ nav i {
 }
 
 @media screen and (max-width: 500px) {
-  .top-right .copy-now {
+  /* .top-right .copy-now {
     display: none;
+  } */
+
+  .top-right {
+    flex-direction: column;
+    margin-top: 18px;
+  }
+
+
+
+  .top-right .follow {
+    background-color: #fff;
+    border: none;
+    border-radius: 50px;
+    padding: 10px 20px;
+    font-size: 10px;
+    color: black;
+  }
+
+  .top-right .copy-now {
+    background-color: rgb(185, 252, 53);
+    border: none;
+    border-radius: 50px;
+    padding: 10px 15px;
+    font-size: 10px;
+    font-weight: 500;
+    color: black;
   }
 }
