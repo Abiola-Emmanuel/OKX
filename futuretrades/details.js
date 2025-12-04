@@ -60,12 +60,61 @@ if (bioEl) bioEl.textContent = Ubio;
 
 
 const ctx = document.getElementById('weeklyPnL');
+const ctx5 = document.getElementById('weeklyPnL3');
 const ctx2 = document.getElementById("weeklyPnL2").getContext("2d");
+const ctx6 = document.getElementById("weeklyPnL4").getContext("2d");
 const ctx3 = document.getElementById("portfolioChart").getContext("2d");
+const ctx7 = document.getElementById("portfolioChart2").getContext("2d");
 const ctx4 = document.getElementById("profitLossChart").getContext("2d");
+const ctx8 = document.getElementById("profitLossChart2").getContext("2d");
 
 
 new Chart(ctx, {
+  type: 'bar',
+  data: {
+    labels: ['12W', '10W', '8W', '6W', '4W', '2W'],
+    datasets: [{
+      label: 'Weekly PnL',
+      data: [2000, 0, 3000, 25000, 12000, 15000],
+      backgroundColor: function (context) {
+        const value = context.raw;
+        return value < 0 ? '#e74c3c' : '#2ecc71';
+      },
+      borderRadius: 4,
+      borderSkipped: false,
+      barThickness: 28
+    }]
+  },
+
+  options: {
+    responsive: true,
+    plugins: {
+      legend: { display: false }
+    },
+
+    scales: {
+      x: {
+        grid: { display: false },
+        ticks: {
+          color: '#666',
+          font: { size: 10 }
+        }
+      },
+
+      y: {
+        grid: { color: '#eee' },
+        ticks: {
+          color: '#aaa',
+          callback: function (value) {
+            return value.toLocaleString();
+          }
+        }
+      }
+    }
+  }
+});
+
+new Chart(ctx5, {
   type: 'bar',
   data: {
     labels: ['12W', '10W', '8W', '6W', '4W', '2W'],
@@ -139,6 +188,34 @@ new Chart(ctx2, {
   }
 });
 
+const gradient2 = ctx6.createLinearGradient(0, 0, 0, 400);
+gradient.addColorStop(0, "rgba(34,197,94,0.35)");
+gradient.addColorStop(1, "rgba(34,197,94,0)");
+
+// Build chart
+new Chart(ctx6, {
+  type: "line",
+  data: {
+    labels: ["Mon", "Tue", "Wed", "Thu", "Fri"],
+    datasets: [{
+      data: [0, 1, 1, 6, 6],
+      borderColor: "rgb(34,197,94)",
+      borderWidth: 3,
+      backgroundColor: gradient,
+      stepped: true,
+      pointRadius: 0,
+      fill: true
+    }]
+  },
+  options: {
+    plugins: { legend: { display: false } },
+    scales: {
+      x: { grid: { display: false } },
+      y: { grid: { color: "rgba(0,0,0,0.05)" } }
+    }
+  }
+});
+
 
 const centerTextPlugin = {
   id: "centerText",
@@ -160,6 +237,47 @@ const centerTextPlugin = {
 };
 
 new Chart(ctx3, {
+  type: "doughnut",
+  data: {
+    labels: ["WLFI", "BNB"],
+    datasets: [
+      {
+        data: [80, 20],
+        backgroundColor: ["#3b6ef5", "#2bb3c0"],
+        borderWidth: 0
+      }
+    ]
+  },
+  options: {
+    cutout: "72%",
+    plugins: {
+      legend: { display: false },
+      tooltip: { enabled: false }
+    }
+  },
+  plugins: [centerTextPlugin]
+});
+
+const centerTextPlugin2 = {
+  id: "centerText2",
+  beforeDraw(chart) {
+    const { ctx, width, height } = chart;
+
+    ctx.save();
+    ctx.font = "bold 22px Arial";
+    ctx.fillStyle = "#111";
+    ctx.textAlign = "center";
+    ctx.textBaseline = "middle";
+    ctx.fillText("80.00%", width / 2, height / 2 + 10);
+
+    ctx.font = "12px Arial";
+    ctx.fillStyle = "#888";
+    ctx.fillText("WLFI", width / 2, height / 2 - 15);
+    ctx.restore();
+  }
+};
+
+new Chart(ctx7, {
   type: "doughnut",
   data: {
     labels: ["WLFI", "BNB"],
@@ -233,4 +351,84 @@ new Chart(ctx4, {
       }
     }
   }
+});
+
+const profitData2 = [{
+  x: "1m",
+  y: 350.98
+}];
+
+const lossData2 = [];
+
+new Chart(ctx8, {
+  type: "scatter",
+  data: {
+    datasets: [
+      {
+        label: "Profit",
+        data: profitData2,
+        backgroundColor: "#22c55e",
+        pointRadius: 6
+      },
+      {
+        label: "Loss",
+        data: lossData2,
+        backgroundColor: "#f43f5e",
+        pointRadius: 6
+      }
+    ]
+  },
+  options: {
+    plugins: {
+      legend: { display: false }, // we use custom legend
+      tooltip: { enabled: false }
+    },
+    scales: {
+      x: {
+        type: "category",
+        labels: ["1m", "24h", "5D", "15D"],
+        grid: { display: false },
+        ticks: { color: "#999" }
+      },
+      y: {
+        min: 3450.92,
+        max: 3451.02,
+        grid: {
+          color: "rgba(0,0,0,0.05)",
+          borderDash: [4, 4]
+        },
+        ticks: {
+          color: "#999"
+        }
+      }
+    }
+  }
+});
+
+
+const tab1 = document.getElementById("tab1");
+const tab2 = document.getElementById("tab2");
+
+
+const content1 = document.getElementById("content1");
+const content2 = document.getElementById("content2");
+
+
+tab1.addEventListener("click", () => {
+  tab1.classList.add("active");
+  tab2.classList.remove("active");
+
+
+  content1.classList.remove("hidden");
+  content2.classList.add("hidden");
+});
+
+
+tab2.addEventListener("click", () => {
+  tab2.classList.add("active");
+  tab1.classList.remove("active");
+
+
+  content2.classList.remove("hidden");
+  content1.classList.add("hidden");
 });
