@@ -634,6 +634,10 @@ nav i {
     gap: 10px;
   }
 
+  .dt-top {
+    height: 180px;
+  }
+
 }
 
 @media screen and (max-width: 500px) {
