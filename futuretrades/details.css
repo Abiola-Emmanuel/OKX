@@ -808,9 +808,9 @@ nav i {
     display: flex;
     width: 100%;
     flex-direction: row;
+    gap: 5px;
     padding: 8px;
     justify-content: space-between;
-    border-bottom: 1.5px solid rgb(242, 242, 242);
   }
 
   .history-row {
