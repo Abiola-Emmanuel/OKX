@@ -818,7 +818,14 @@ nav i {
     padding-bottom: 30px;
   }
 
+  .rm-left {
+    width: 50%;
+    font-size: 10px;
+    gap: 3px;
+  }
+
   .rm-right {
+    width: 50%;
     gap: 20px;
   }
 
