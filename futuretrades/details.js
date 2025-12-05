@@ -406,29 +406,63 @@ new Chart(ctx8, {
 });
 
 
+
+
+// Tab buttons at the top
 const tab1 = document.getElementById("tab1");
 const tab2 = document.getElementById("tab2");
 
-
+// Tab content sections
 const content1 = document.getElementById("content1");
 const content2 = document.getElementById("content2");
 
+// Inner buttons inside Future Trades
+const performanceBtn = document.getElementById("performance");
+const historyBtn1 = document.getElementById("history1");
+const copyBtn1 = document.getElementById("copy1");
 
+const content3 = document.getElementById("content3"); // History
+const content4 = document.getElementById("content4"); // Copy
+
+// Spot buttons
+const SpotPerformanceBtn = document.getElementById("SpotPerformance");
+const historyBtn2 = document.getElementById("history2");
+const copyBtn2 = document.getElementById("copy2");
+
+// --- TOP TAB SWITCHING ---
 tab1.addEventListener("click", () => {
   tab1.classList.add("active");
   tab2.classList.remove("active");
 
-
   content1.classList.remove("hidden");
   content2.classList.add("hidden");
+  content3.classList.add("hidden");
+  content4.classList.add("hidden");
 });
-
 
 tab2.addEventListener("click", () => {
   tab2.classList.add("active");
   tab1.classList.remove("active");
 
-
   content2.classList.remove("hidden");
   content1.classList.add("hidden");
+});
+
+// --- INNER TAB SWITCHING (Future Trades) ---
+performanceBtn.addEventListener("click", () => {
+  content1.classList.remove("hidden");
+  content3.classList.add("hidden");
+  content4.classList.add("hidden");
+});
+
+historyBtn1.addEventListener("click", () => {
+  content3.classList.remove("hidden");
+  content1.classList.add("hidden");
+  content4.classList.add("hidden");
+});
+
+copyBtn1.addEventListener("click", () => {
+  content4.classList.remove("hidden");
+  content1.classList.add("hidden");
+  content3.classList.add("hidden");
 });

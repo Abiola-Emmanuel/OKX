@@ -93,12 +93,13 @@
 
   <div class="main" id="content1">
     <div class="perform">
-      <button>Performance</button>
-      <button>History</button>
-      <button>Copy traders</button>
+      <button id="performance" class="clicked">Performance</button>
+      <button id="history1">History</button>
+      <button id="copy1">Copy traders</button>
     </div>
 
-    <div class="performance">
+
+    <div class=" performance">
 
       <div class="main-left">
         <div class="performance-left">
@@ -363,10 +364,11 @@
 
   <div class="main hidden" id="content2">
     <div class="perform">
-      <button>Performance</button>
-      <button>History</button>
-      <button>Copy traders</button>
+      <button id="SpotPerformance" class="clicked">Performance</button>
+      <button id="history2">History</button>
+      <button id="copy2">Copy traders</button>
     </div>
+
 
     <div class="performance">
 
@@ -629,6 +631,158 @@
       </div>
 
     </div>
+
+  </div>
+
+  <!-- FOR WHEN YOU CLICK ON HISTORY -->
+
+  <div class="main hidden" id="content3">
+    <div class="perform">
+      <!-- <button id="HistoryPerformance" class="clicked">Performance</button> -->
+      <button id="history3">History</button>
+      <!-- <button id="HistoryCopy">Copy traders</button> -->
+    </div>
+
+
+
+    <div class="history-row">
+      <div class="title">
+        <img src="/images/btc.png" alt="">
+        <p>BTC/USDT</p>
+      </div>
+      <div class="history-row-bottom">
+        <div class="bs">
+          <div class="bought">
+            <p class="gray">Bought</p>
+            <p>11/01/2025, 09:12:45</p>
+          </div>
+          <div class="sold">
+            <p class="gray">Sold</p>
+            <p>11/02/2025, 14:33:12</p>
+          </div>
+        </div>
+        <div class="bs">
+          <p><span class="gray">Buy price</span> 68,200 USDT</p>
+          <p><span class="gray">Sell price</span> 69,500 USDT</p>
+        </div>
+        <div class="bs">
+          <p><span class="gray">Realized PnL</span> <span class="green-text2">+1,300 USDT</span></p>
+          <p><span class="gray">Realized PnL</span> <span class="green-text2">+1.91%</span></p>
+        </div>
+        <div class="bs">
+          <p><span class="gray">Amount</span> 0.95 BTC</p>
+          <p><span class="gray">Buy value</span> 64,790 USDT</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="history-row">
+      <div class="title">
+        <img src="/images/eth.png" alt="">
+        <p>ETH/USDT</p>
+      </div>
+      <div class="history-row-bottom">
+        <div class="bs">
+          <div class="bought">
+            <p class="gray">Bought</p>
+            <p>11/02/2025, 16:05:20</p>
+          </div>
+          <div class="sold">
+            <p class="gray">Sold</p>
+            <p>11/03/2025, 08:47:55</p>
+          </div>
+        </div>
+        <div class="bs">
+          <p><span class="gray">Buy price</span> 4,320 USDT</p>
+          <p><span class="gray">Sell price</span> 4,500 USDT</p>
+        </div>
+        <div class="bs">
+          <p><span class="gray">Realized PnL</span> <span class="green-text2">+180 USDT</span></p>
+          <p><span class="gray">Realized PnL</span> <span class="green-text2">+4.17%</span></p>
+        </div>
+        <div class="bs">
+          <p><span class="gray">Amount</span> 10.5 ETH</p>
+          <p><span class="gray">Buy value</span> 45,360 USDT</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="history-row">
+      <div class="title">
+        <img src="/images/xrp.png" alt="">
+        <p>BNB/USDT</p>
+      </div>
+      <div class="history-row-bottom">
+        <div class="bs">
+          <div class="bought">
+            <p class="gray">Bought</p>
+            <p>11/03/2025, 11:30:00</p>
+          </div>
+          <div class="sold">
+            <p class="gray">Sold</p>
+            <p>11/04/2025, 19:20:30</p>
+          </div>
+        </div>
+        <div class="bs">
+          <p><span class="gray">Buy price</span> 890 USDT</p>
+          <p><span class="gray">Sell price</span> 950 USDT</p>
+        </div>
+        <div class="bs">
+          <p><span class="gray">Realized PnL</span> <span class="green-text2">+4,200 USDT</span></p>
+          <p><span class="gray">Realized PnL</span> <span class="green-text2">+4.72%</span></p>
+        </div>
+        <div class="bs">
+          <p><span class="gray">Amount</span> 75 BNB</p>
+          <p><span class="gray">Buy value</span> 66,750 USDT</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="history-row">
+      <div class="title">
+        <img src="/images/usdt.png" alt="">
+        <p>ADA/USDT</p>
+      </div>
+      <div class="history-row-bottom">
+        <div class="bs">
+          <div class="bought">
+            <p class="gray">Bought</p>
+            <p>11/04/2025, 09:00:10</p>
+          </div>
+          <div class="sold">
+            <p class="gray">Sold</p>
+            <p>11/04/2025, 23:45:55</p>
+          </div>
+        </div>
+        <div class="bs">
+          <p><span class="gray">Buy price</span> 1.20 USDT</p>
+          <p><span class="gray">Sell price</span> 1.35 USDT</p>
+        </div>
+        <div class="bs">
+          <p><span class="gray">Realized PnL</span> <span class="green-text2">+1,500 USDT</span></p>
+          <p><span class="gray">Realized PnL</span> <span class="green-text2">+12.5%</span></p>
+        </div>
+        <div class="bs">
+          <p><span class="gray">Amount</span> 1,200 ADA</p>
+          <p><span class="gray">Buy value</span> 1,440 USDT</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+
+
+
+  <!-- FOR WHEN YOU CLICK ON COPY -->
+
+  <div class="main hidden" id="content4">
+    <div class="perform">
+      <!-- <button id="CopyPerformance" class="clicked">Performance</button> -->
+      <!-- <button id="history4">History</button> -->
+      <button id="copy3">Copy traders</button>
+    </div>
+
 
   </div>
 
