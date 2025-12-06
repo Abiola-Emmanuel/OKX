@@ -282,6 +282,48 @@ nav i {
   background-color: rgb(243, 243, 243);
 }
 
+footer {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid rgba(45, 45, 45, 0.5);
+  padding: 10px 15px;
+  background-color: black;
+}
+
+.foot-image {
+  width: 100px;
+  object-fit: contain;
+}
+
+.foot-right {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.foot-right p {
+  color: #fff;
+}
+
+.socials {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.foot-right a {
+  color: #fff;
+  text-decoration: none;
+  transition: transform 0.4s ease;
+}
+
+.foot-right a:hover {
+  transform: translateY(-5px);
+}
+
+
 @media screen and (max-width: 768px) {
   .nav-right i {
     display: none;
@@ -324,6 +366,10 @@ nav i {
 
   .user-inputs {
     width: 80%;
+  }
+
+  .foot-right p {
+    display: none;
   }
 
 }

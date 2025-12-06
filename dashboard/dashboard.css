@@ -127,7 +127,7 @@ nav i {
 
 .dash-main {
   width: 90%;
-  height: 100vh;
+  /* height: 100vh; */
   margin: 70px auto 0 auto;
   padding: 20px;
   /* border: 1px solid red; */
@@ -509,6 +509,47 @@ nav i {
   border-radius: 10px;
 }
 
+footer {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-top: 1px solid rgba(45, 45, 45, 0.5);
+  padding: 10px 15px;
+  background-color: black;
+}
+
+.foot-image {
+  width: 100px;
+  object-fit: contain;
+}
+
+.foot-right {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.socials {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.foot-right a {
+  color: #fff;
+  text-decoration: none;
+  transition: transform 0.4s ease;
+}
+
+.foot-right a:hover {
+  transform: translateY(-5px);
+}
+
+.foot-right p {
+  color: #fff;
+}
+
 
 @media screen and (max-width: 768px) {
   .nav-right i {
@@ -582,6 +623,10 @@ nav i {
 
   .trends button {
     font-size: 13px;
+  }
+
+  .foot-right p {
+    display: none;
   }
 }
 
