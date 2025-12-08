@@ -882,6 +882,14 @@ footer {
   }
 }
 
+@media screen and (min-width: 769px) {
+  footer {
+    position: fixed;
+    bottom: 0;
+  }
+}
+
+
 @media screen and (max-width: 500px) {
   /* .top-right .copy-now {
     display: none;

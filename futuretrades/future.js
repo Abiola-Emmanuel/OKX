@@ -1,3 +1,21 @@
+const overlay = document.getElementById('overlay');
+const amountInput = document.getElementById('amount');
+const preview = document.getElementById('preview');
+
+
+document.querySelector('.open-modal').addEventListener('click', toggleModal);
+
+
+function toggleModal() {
+  overlay.classList.toggle('modalShow');
+}
+
+amountInput.addEventListener('input', () => {
+  preview.textContent = amountInput.value
+    ? `$${amountInput.value}`
+    : '$0.00';
+});
+
 const menuOverlay = document.getElementById('menuOverlay');
 
 function menuOpen() {
