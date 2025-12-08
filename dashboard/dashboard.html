@@ -16,6 +16,38 @@
 
 <body>
 
+  <div class="overlay" id="overlay">
+    <div class="modal">
+      <div class="close" onclick="toggleModal()"><i class="fa fa-close"></i></div>
+      <h2>Deposit</h2>
+
+
+      <div class="amount-preview" id="preview">$0.00</div>
+
+
+      <div class="input-group">
+        <input type="number" id="amount" placeholder="Amount" />
+        <select>
+          <option>USD</option>
+          <option>NGN</option>
+        </select>
+      </div>
+
+
+      <div class="input-group pay-method">
+        <select>
+          <option>Select payment method</option>
+          <option>Card</option>
+          <option>Bank Transfer</option>
+          <option>Crypto</option>
+        </select>
+      </div>
+
+
+      <button class="deposit-btn">Deposit</button>
+    </div>
+  </div>
+
   <div class="menu-overlay" id="menuOverlay">
     <button onclick="closeMenu()"><i class="fa fa-close"></i></button>
     <a href="/">HOME</a>
@@ -35,7 +67,7 @@
 
     <div style="display: flex; gap: 20px; align-items: center;">
       <div class="nav-right">
-        <a href="#" class="deposit">Deposit</a>
+        <a href="#" class="deposit open-modal">Deposit</a>
         <i class="fa fa-search"></i>
         <i class="fa fa-user"></i>
         <i class="fa fa-bell"></i>
