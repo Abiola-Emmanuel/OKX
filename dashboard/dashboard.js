@@ -17,6 +17,17 @@ amountInput.addEventListener('input', () => {
     : '$0.00';
 });
 
+copyBtn.addEventListener('click', () => {
+  navigator.clipboard.writeText(paymentInput.value);
+  copyBtn.textContent = 'Copied';
+
+
+  setTimeout(() => {
+    copyBtn.textContent = 'Copy';
+  }, 1000);
+})
+
+
 const menuOverlay = document.getElementById('menuOverlay');
 
 function menuOpen() {

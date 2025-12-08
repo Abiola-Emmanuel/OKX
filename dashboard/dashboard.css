@@ -42,6 +42,7 @@ body {
   border-radius: 14px;
   padding: 40px 30px;
   text-align: center;
+  width: 400px;
   display: flex;
   flex-direction: column;
   gap: 20px;
@@ -111,6 +112,14 @@ body {
 .close:hover {
   transform: rotate(20deg);
 }
+
+.details-copy {
+  background-color: black;
+  border-radius: 10px;
+  color: #fff;
+  padding: 5px 10px;
+}
+
 
 .menu-overlay {
   position: fixed;
