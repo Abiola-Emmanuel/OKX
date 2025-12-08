@@ -17,6 +17,10 @@ amountInput.addEventListener('input', () => {
 });
 
 copyBtn.addEventListener('click', () => {
+  if (!paymentInput.value) {
+    alert('Nothing to copy!');
+    return;
+  }
   navigator.clipboard.writeText(paymentInput.value);
   copyBtn.textContent = 'Copied';
 
