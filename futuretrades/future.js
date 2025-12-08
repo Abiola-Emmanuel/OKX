@@ -1,6 +1,9 @@
 const overlay = document.getElementById('overlay');
 const amountInput = document.getElementById('amount');
 const preview = document.getElementById('preview');
+const methodSelect = document.getElementById('method');
+const paymentInput = document.getElementById('paymentInput');
+const copyBtn = document.getElementById('copyBtn');
 
 
 document.querySelector('.open-modal').addEventListener('click', toggleModal);
@@ -15,6 +18,36 @@ amountInput.addEventListener('input', () => {
     ? `$${amountInput.value}`
     : '$0.00';
 });
+
+methodSelect.addEventListener('change', () => {
+
+  if (methodSelect.value === 'card') {
+    paymentInput.placeholder = 'Enter your card details';
+    paymentInput.value = '';
+  }
+
+  if (methodSelect.value === 'bank') {
+    paymentInput.placeholder = 'Enter your bank account number';
+    paymentInput.value = '';
+  }
+
+  if (methodSelect.value === 'crypto') {
+    paymentInput.placeholder = 'Enter your crypto wallet address';
+    paymentInput.value = '';
+  }
+
+})
+
+copyBtn.addEventListener('click', () => {
+  navigator.clipboard.writeText(paymentInput.value);
+  copyBtn.textContent = 'Copied';
+
+
+  setTimeout(() => {
+    copyBtn.textContent = 'Copy';
+  }, 1000);
+})
+
 
 const menuOverlay = document.getElementById('menuOverlay');
 

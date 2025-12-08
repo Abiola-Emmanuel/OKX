@@ -43,6 +43,7 @@ body {
   padding: 40px 30px;
   text-align: center;
   display: flex;
+  width: 400px;
   flex-direction: column;
   gap: 20px;
   animation-name: zoom;
@@ -84,6 +85,13 @@ body {
 
 .pay-method {
   margin-bottom: 20px;
+}
+
+.details-copy {
+  background-color: black;
+  border-radius: 10px;
+  color: #fff;
+  padding: 5px 10px;
 }
 
 
