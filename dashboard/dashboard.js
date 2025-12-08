@@ -1,6 +1,10 @@
 const overlay = document.getElementById('overlay');
+const overlay2 = document.getElementById('overlay2');
 const amountInput = document.getElementById('amount');
+const withdraw_amount = document.getElementById('withdraw_amount');
 const preview = document.getElementById('preview');
+const preview2 = document.getElementById('preview2');
+const copyBtn = document.getElementById('copyBtn');
 
 
 document.querySelector('.open-modal').addEventListener('click', toggleModal);
@@ -10,10 +14,22 @@ function toggleModal() {
   overlay.classList.toggle('modalShow');
 }
 
+function toggleModal2() {
+  overlay2.classList.toggle('modalShow');
+  console.log('withdraw');
+
+}
+
 
 amountInput.addEventListener('input', () => {
   preview.textContent = amountInput.value
     ? `$${amountInput.value}`
+    : '$0.00';
+});
+
+withdraw_amount.addEventListener('input', () => {
+  preview2.textContent = withdraw_amount.value
+    ? `$${withdraw_amount.value}`
     : '$0.00';
 });
 

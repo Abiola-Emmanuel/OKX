@@ -11,7 +11,8 @@ body {
   font-family: Inter, sans-serif;
 }
 
-.overlay {
+.overlay,
+.overlay2 {
   position: fixed;
   inset: 0;
   background: rgba(0, 0, 0, 0.90);
@@ -23,7 +24,8 @@ body {
 }
 
 
-.overlay.modalShow {
+.overlay.modalShow,
+.overlay2.modalShow {
   display: flex;
 }
 
