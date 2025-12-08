@@ -308,6 +308,7 @@ nav i {
 .buttons {
   display: flex;
   gap: 20px;
+  align-items: center;
   justify-content: center;
   text-align: center;
 }
@@ -324,6 +325,30 @@ nav i {
 .buttons button.active {
   background-color: rgb(46, 46, 46);
   color: white;
+}
+
+.search-traders {
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+  border: 1px solid white;
+  align-items: center;
+  padding: 5px 10px;
+  border-radius: 20px;
+  background-color: #fff;
+}
+
+.search-traders i {
+  color: black;
+}
+
+.search-traders input {
+  border: none;
+  outline: none;
+  padding: 5px;
+  font-size: 14px;
+  color: black;
+  background-color: transparent;
 }
 
 .top-left img {
