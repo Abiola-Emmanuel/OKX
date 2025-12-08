@@ -287,6 +287,7 @@ nav i {
   display: flex;
   flex-direction: column;
   gap: 20px;
+  align-items: center;
   margin-top: 60px;
 }
 
@@ -327,7 +328,7 @@ nav i {
 
 .search-traders {
   display: flex;
-  justify-content: center;
+  width: 300px;
   gap: 5px;
   border: 1px solid white;
   align-items: center;
