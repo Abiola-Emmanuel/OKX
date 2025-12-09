@@ -339,7 +339,7 @@ nav i {
 .search-traders {
   display: flex;
   gap: 5px;
-  width: 300px;
+  width: 400px;
   border: 1px solid white;
   align-items: center;
   padding: 5px 10px;
@@ -595,15 +595,5 @@ footer {
 
   .foot-right p {
     display: none;
-  }
-}
-
-@media screen and (max-width: 500px) {
-  .modal {
-    width: 300px;
-  }
-
-  .input-group {
-    flex-direction: column;
   }
 }
