@@ -10,6 +10,8 @@ const copyBtn = document.getElementById('copyBtn');
 document.querySelector('.open-modal').addEventListener('click', toggleModal);
 
 
+
+
 function toggleModal() {
   overlay.classList.toggle('modalShow');
 }
