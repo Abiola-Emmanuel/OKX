@@ -21,8 +21,6 @@ function toggleModal() {
 
 function toggleModal2() {
   overlay2.classList.toggle('modalShow');
-  console.log('withdraw');
-
 }
 
 

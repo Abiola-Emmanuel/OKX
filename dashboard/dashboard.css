@@ -296,15 +296,15 @@ nav i {
   background: transparent;
   border: 1px soid black;
   padding: 5px 10px;
-  border: 1px solid black;
+  border: 1px solid #fff;
   border-radius: 50px;
-  color: black;
+  color: #fff;
   transition: background-color 0.4s ease, color 0.4s ease;
 }
 
 .balance-options button:hover {
-  background-color: black;
-  color: white;
+  background-color: white;
+  color: black;
   cursor: pointer;
 }
 
