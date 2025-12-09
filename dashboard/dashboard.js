@@ -1,10 +1,13 @@
 const overlay = document.getElementById('overlay');
 const overlay2 = document.getElementById('overlay2');
+const paymentInput = document.getElementById('paymentInput');
+const paymentInput2 = document.getElementById('paymentInput2');
 const amountInput = document.getElementById('amount');
 const withdraw_amount = document.getElementById('withdraw_amount');
 const preview = document.getElementById('preview');
 const preview2 = document.getElementById('preview2');
 const copyBtn = document.getElementById('copyBtn');
+const copyBtn2 = document.getElementById('copyBtn2');
 
 
 document.querySelector('.open-modal').addEventListener('click', toggleModal);
@@ -36,16 +39,26 @@ withdraw_amount.addEventListener('input', () => {
 });
 
 copyBtn.addEventListener('click', () => {
-  if (!paymentInput.value) {
-    alert('Nothing to copy!');
-    return;
-  }
   navigator.clipboard.writeText(paymentInput.value);
   copyBtn.textContent = 'Copied';
 
 
   setTimeout(() => {
     copyBtn.textContent = 'Copy';
+  }, 1000);
+})
+
+copyBtn2.addEventListener('click', () => {
+  if (!paymentInput2.value) {
+    alert('Nothing to copy!');
+    return;
+  }
+  navigator.clipboard.writeText(paymentInput2.value);
+  copyBtn2.textContent = 'Copied';
+
+
+  setTimeout(() => {
+    copyBtn2.textContent = 'Copy';
   }, 1000);
 })
 
