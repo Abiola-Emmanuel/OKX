@@ -339,7 +339,7 @@ nav i {
 .search-traders {
   display: flex;
   gap: 5px;
-  width: 400px;
+  width: 300px;
   border: 1px solid white;
   align-items: center;
   padding: 5px 10px;
