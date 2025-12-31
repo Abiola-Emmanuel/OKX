@@ -1,0 +1,404 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: black;
+  position: relative;
+  font-family: Inter, sans-serif;
+}
+
+.menu-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.96);
+  z-index: 100000;
+  display: flex;
+  gap: 30px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.28s ease;
+}
+
+.menu-overlay.open {
+  display: flex;
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.menu-overlay a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 20px;
+  transition: transform 0.4s ease;
+}
+
+.menu-overlay button {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: transparent;
+  color: #fff;
+  border: none;
+  font-size: 25px;
+}
+
+.menu-overlay a:hover {
+  transform: scale(1.1);
+  cursor: pointer;
+}
+
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 1000;
+  background-color: black;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.nav-left {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.nav-right {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
+.nav-right .sup {
+  border: 1px solid #fff;
+  padding: 4px 15px;
+  border-radius: 20px;
+
+}
+
+nav a {
+  color: #fff;
+  text-decoration: none;
+}
+
+nav i {
+  color: #fff;
+}
+
+.menu {
+  display: none;
+  font-size: 28px;
+  background-color: transparent;
+  border: none;
+}
+
+/* HERO SECTION */
+
+.hero {
+  width: 100%;
+  margin-top: 190px;
+  display: flex;
+  justify-content: center;
+}
+
+.hero-div {
+  display: flex;
+  gap: 40px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
+  text-align: center;
+}
+
+.hero-text {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.ht-1 p,
+.ht-2 p {
+  font-size: 18px;
+  line-height: 32px;
+  font-weight: 300;
+  color: rgb(255, 255, 255);
+}
+
+.vm {
+  width: 100%;
+  display: flex;
+  margin-top: 180px;
+}
+
+.vision,
+.mission {
+  width: 50%;
+  height: 400px;
+  background-color: rgb(29, 29, 29);
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  gap: 30px;
+  transition: background-color 0.4s ease, color 0.4s ease;
+  position: relative;
+  padding-left: 50px;
+  padding-top: 50px;
+}
+
+.vision {
+  padding-right: 20px;
+}
+
+.square {
+  position: absolute;
+  top: 50px;
+  left: 40px;
+  z-index: 3;
+}
+
+.vision h2,
+.mission h2 {
+  color: rgb(255, 255, 255);
+  font-size: 44px;
+  line-height: 58px;
+  font-weight: 700;
+  transition: color 0.4s ease;
+}
+
+.vision p,
+.mission p {
+  color: #fff;
+  font-size: 16px;
+  line-height: 29px;
+  font-weight: 400;
+}
+
+.vision:hover,
+.mission:hover {
+  background-color: #fafafa;
+  color: black;
+}
+
+.vision:hover h2,
+.mission:hover h2 {
+  color: black;
+}
+
+
+.vision:hover p,
+.mission:hover p {
+  color: black;
+}
+
+.introduction {
+  width: 100%;
+  padding-top: 50px;
+  padding-bottom: 50px;
+  display: flex;
+  justify-content: center;
+  background-color: #fafafa;
+}
+
+.intro-main {
+  width: 85%;
+  display: flex;
+  align-items: center;
+}
+
+.introduction h2 {
+  font-size: 40px;
+  line-height: 58px;
+  font-weight: 700;
+}
+
+.intro-left {
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.intro-right {
+  display: flex;
+  justify-content: center;
+}
+
+.intro-text {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.intro-text p {
+  font-size: 16px;
+  line-height: 29px;
+  font-weight: 400;
+}
+
+.more-text {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  display: none;
+}
+
+.show-more {
+  display: flex;
+}
+
+.intro-left button {
+  align-self: flex-start;
+  background: none;
+  border: none;
+  font-size: 16px;
+  line-height: 29px;
+  font-weight: 400;
+  cursor: pointer;
+  transition: text-decoration 0.4s ease;
+}
+
+.intro-left button:hover {
+  text-decoration: underline;
+}
+
+.intro-right {
+  width: 40%;
+}
+
+.mainstream {
+  width: 100%;
+  background-color: black;
+  color: rgb(255, 255, 255);
+  display: flex;
+  justify-content: center;
+  padding-top: 50px;
+}
+
+.mainstream-main {
+  width: 70%;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.mainstream-text {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.mainstream-text p {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 29px;
+}
+
+.mainstream-more {
+  display: none;
+}
+
+.show {
+  display: block;
+}
+
+.mainstream-main button {
+  align-self: flex-start;
+  background: none;
+  border: none;
+  font-size: 16px;
+  line-height: 29px;
+  font-weight: 400;
+  cursor: pointer;
+  color: rgb(255, 255, 255);
+  transition: text-decoration 0.4s ease;
+}
+
+
+
+@media screen and (max-width: 768px) {
+  .nav-right i {
+    display: none;
+  }
+
+  .abt,
+  .copy {
+    display: none;
+  }
+
+  .menu {
+    display: flex;
+  }
+
+
+  .hero-div {
+    width: 95%;
+    text-align: center;
+  }
+
+  .ht-1 p,
+  .ht-2 p {
+    font-size: 18px;
+    line-height: 32px;
+    font-weight: 300;
+    color: rgb(255, 255, 255);
+  }
+
+  .vm {
+    flex-direction: column;
+  }
+
+  .vision,
+  .mission {
+    width: 100%;
+    padding: 20px;
+  }
+
+  .intro-main {
+    flex-direction: column;
+  }
+
+  .intro-left,
+  .intro-right {
+    width: 100%;
+  }
+
+  .intro-right {
+    display: flex;
+    justify-content: center;
+  }
+
+  .intro-text p {
+    font-size: 14px;
+    line-height: 22px;
+    font-weight: 400;
+  }
+
+  .mainstream-main {
+    width: 90%;
+  }
+
+  .mainstream-text p {
+    font-size: 14px;
+    line-height: 22px;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .hero {
+    height: 100vh;
+    margin-top: 80px;
+  }
+}
